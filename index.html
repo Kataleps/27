@@ -25,23 +25,24 @@
         }
         
         .subtitle {
-            font-size: 40px; /* В два раза меньше основного заголовка */
+            font-size: 40px;
             opacity: 0.8;
             margin-bottom: 40px;
         }
         
         .logo-image {
-            width: 200px;
+            width: 400px; /* Увеличено в 2 раза (было 200px) */
             height: auto;
-            border-radius: 10px;
+            border-radius: 0; /* Убраны закругления */
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            display: block; /* Убедимся, что изображение отображается как блок */
         }
     </style>
 </head>
 <body>
     <div class="main-title">KATALEPS</div>
     <div class="subtitle">Проект Orgus</div>
-    <!-- Пример добавления изображения -->
+    <!-- Добавленное изображение -->
     <img src="logo.png" alt="Логотип проекта" class="logo-image">
 </body>
 </html>
