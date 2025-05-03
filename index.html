@@ -16,33 +16,59 @@
             background-color: #1a1a1a;
             font-family: 'Arial Black', sans-serif;
             color: white;
+            overflow: hidden;
         }
         
-        .main-title {
+        .letter {
+            display: inline-block;
             font-size: 80px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            transform: translateY(0);
+            animation: jump 1.5s infinite ease-in-out;
+        }
+        
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
         }
         
         .subtitle {
             font-size: 40px;
             opacity: 0.8;
-            margin-bottom: 40px;
+            margin: 20px 0 40px;
         }
         
         .logo-image {
-            width: 400px; /* Увеличено в 2 раза (было 200px) */
+            width: 600px; /* Увеличен в 3 раза от исходного 200px */
             height: auto;
-            border-radius: 0; /* Убраны закругления */
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            display: block; /* Убедимся, что изображение отображается как блок */
+            border-radius: 0;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-image:hover {
+            transform: scale(1.02);
         }
     </style>
 </head>
 <body>
-    <div class="main-title">KATALEPS</div>
+    <div id="animated-title"></div>
     <div class="subtitle">Проект Orgus</div>
-    <!-- Добавленное изображение -->
     <img src="logo.png" alt="Логотип проекта" class="logo-image">
+
+    <script>
+        const word = "KATALEPS";
+        const container = document.getElementById('animated-title');
+        
+        word.split('').forEach((letter, index) => {
+            const span = document.createElement('span');
+            span.className = 'letter';
+            span.textContent = letter;
+            span.style.animationDelay = `${index * 0.1}s`;
+            container.appendChild(span);
+        });
+    </script>
 </body>
 </html>
