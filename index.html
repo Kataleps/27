@@ -3,50 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kataleps Jump</title>
+    <title>Kataleps</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: #1a1a1a;
             font-family: 'Arial Black', sans-serif;
-            overflow: hidden;
+            color: white;
         }
         
-        .letter {
-            display: inline-block;
+        .main-title {
             font-size: 80px;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-            transform: translateY(0);
-            animation: jump 1.5s infinite ease-in-out;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
         }
         
-        @keyframes jump {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
+        .subtitle {
+            font-size: 40px; /* В два раза меньше основного заголовка */
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+        
+        .logo-image {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 <body>
-    <div id="word"></div>
-
-    <script>
-        const word = "KATALEPS";
-        const container = document.getElementById('word');
-        
-        word.split('').forEach((letter, index) => {
-            const span = document.createElement('span');
-            span.className = 'letter';
-            span.textContent = letter;
-            span.style.animationDelay = `${index * 0.1}s`;
-            container.appendChild(span);
-        });
-    </script>
+    <div class="main-title">KATALEPS</div>
+    <div class="subtitle">Проект Orgus</div>
+    <!-- Пример добавления изображения -->
+    <img src="logo.png" alt="Логотип проекта" class="logo-image">
 </body>
 </html>
