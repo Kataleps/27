@@ -270,6 +270,11 @@
             margin-bottom: 10px;
         }
 
+        /* Класс для скрытия на мобильных */
+        .mobile-hide {
+            display: block;
+        }
+
         /* Адаптивность для мобильных */
         @media (max-width: 768px) {
             .header {
@@ -301,6 +306,10 @@
                 height: auto;
                 max-width: 300px;
                 margin: 0 auto 20px;
+            }
+            
+            .mobile-hide {
+                display: none;
             }
             
             .main-title {
@@ -396,13 +405,14 @@
             <div class="nav-buttons">
                 <a href="#" class="nav-button active" data-tab="tab1">Главная</a>
                 <a href="#" class="nav-button" data-tab="tab2">Продукция</a>
-                <a href="#" class="nav-button" data-tab="tab3">Инфо</a>
+                <a href="#" class="nav-button" data-tab="tab3">Информация</a>
             </div>
             <div class="contacts">
                 <a href="https://vk.com/kataleps" class="contact-button" target="_blank">vk</a>
                 <button class="contact-button" id="tg-button">
                     tg
-                    <span class="tooltip">@SearAndRue</span>
+                    <span class="tooltip">@SearAndRue
+                    9022410241</span>
                 </button>
                 <button class="contact-button" id="email-button">
                     @
@@ -419,7 +429,7 @@
             <div class="tab1-content">
                 <div class="image-column">
                     <img src="logo.png" alt="MIDI-орган" class="tab1-image">
-                    <img src="2.png" alt="MIDI-орган" class="tab1-image">
+                    <img src="2.png" alt="MIDI-орган" class="tab1-image mobile-hide">
                 </div>
                 <div class="tab1-text">
                     <h1 class="main-title">Ручное изготовление электронных органов под заказ</h1>
@@ -436,7 +446,7 @@
                         <li>невозможно сделать личным и индивидуальным — орган всегда принадлежал пространству, но не исполнителю.</li>
                     </ul>
                     
-                    <p>Сейчас это изменилось.</p>
+                    <p>Сейчас это изменилось!</p>
                     
                     <p>Благодаря современным технологиям, виртуальные копии настоящих органов — в сочетании с высококачественными MIDI-консолями — позволяют вам прикоснуться к величию инструмента в собственном доме, студии или даже в дороге.</p>
                     
@@ -534,6 +544,9 @@
                 <p>Создание MIDI-органа — это сочетание инженерного мастерства и музыкального творчества. Такой инструмент открывает доступ к бесконечной библиотеке звуков и возможностям настройки, оставаясь при этом более доступным, чем традиционные органы. Благодаря технологиям вроде Hauptwerk, каждый может прикоснуться к миру органной музыки, не выходя из дома.</p>
                 Пока что это пробная версия сайта, не все умею и знаю, но стараюсь его как-то облагородить.
                 Если есть предложения и мысли по доработке - пишите мне в телеграм @SearAndRue (СэрЭндрю).
+
+
+                Цены зависят от характеристик, которые определяются индивидуально. Пишите!
             </div>
         </div>
     </div>
