@@ -10,10 +10,11 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, rgba(86, 129, 135, 0.1) 0%, rgba(255,255,255,1) 100%);
             color: #333;
             overflow-x: hidden;
             min-height: 100vh;
+            background: url('background.png') fixed;
+            background-size: cover;
         }
 
         /* Шапка сайта */
@@ -138,6 +139,7 @@
             margin-top: 100px;
             min-height: calc(100vh - 100px);
             padding: 30px 20px;
+            position: relative;
         }
 
         /* Стили для вкладок */
@@ -219,12 +221,13 @@
             margin: 0 auto;
             font-family: 'Courier New', monospace;
             font-size: 18px;
-            line-height: 2;
-            white-space: pre;
+            line-height: 1.6;
+            white-space: pre-wrap;
             background-color: rgba(255, 255, 255, 0.85);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            word-wrap: break-word;
         }
 
         /* Адаптивность для мобильных */
@@ -277,6 +280,14 @@
             .header-bottom {
                 padding-left: 20px;
             }
+            
+            /* Адаптация третьей вкладки для мобильных */
+            .tab3-content {
+                font-size: 16px;
+                padding: 20px;
+                line-height: 1.5;
+                white-space: normal;
+            }
         }
 
         @media (max-width: 480px) {
@@ -303,6 +314,13 @@
                 width: 28px;
                 height: 28px;
                 font-size: 13px;
+            }
+            
+            /* Дополнительная адаптация третьей вкладки для маленьких экранов */
+            .tab3-content {
+                font-size: 14px;
+                padding: 15px;
+                line-height: 1.4;
             }
         }
     </style>
@@ -399,8 +417,10 @@
         <div id="tab3" class="tab">
             <div class="tab3-content">
 Здесь обязательно скоро появится информация.
-Пока что это пробная версия сайта, не все умею и знаю, но стараюсь его как-то облагородить.
-Если есть предложения и мысли по доработке - пишите мне в телеграм @SearAndRue (СэрЭндрю).
+Пока что это пробная версия сайта, не все умею и знаю,
+но стараюсь его как-то облагородить.
+Если есть предложения и мысли по доработке -
+пишите мне в телеграм @SearAndRue (СэрЭндрю).
             </div>
         </div>
     </div>
