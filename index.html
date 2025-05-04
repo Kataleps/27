@@ -3,93 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kataleps</title>
+    <title>Orgus - Изготовление электро и духовых органов</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
             background-color: #1a1a1a;
-            font-family: 'Arial Black', sans-serif;
             color: white;
-            overflow: hidden;
+            overflow-x: hidden;
         }
-        
-        .letter {
-            display: inline-block;
-            font-size: 80px;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-            transform: translateY(0);
-            animation: jump 1.5s infinite ease-in-out;
+
+        /* Шапка сайта */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #222;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-        
-        @keyframes jump {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #ccc;
+            border-bottom: 1px solid #333;
         }
-        
-        .subtitle {
-            font-size: 40px;
-            opacity: 0.8;
-            margin: 20px 0 30px;
+
+        .header-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
         }
-        
-        .logo-image {
-            width: 480px; /* Уменьшено на 20% (было 600px) */
-            height: auto;
-            border-radius: 0;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
-            transition: transform 0.3s ease;
-            margin-bottom: 40px;
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
         }
-        
-        .logo-image:hover {
-            transform: scale(1.02);
-        }
-        
-        .author-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #1877f2; /* Синий цвет как в VK */
+
+        .nav-button {
             color: white;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #444;
+        }
+
+        .nav-button.active {
+            background-color: #555;
+        }
+
+        .contacts {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-text {
+            margin-right: 15px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .contact-button {
+            width: 30px;
+            height: 30px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #444;
+        }
+
+        .contact-button .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            margin-bottom: 5px;
+        }
+
+        .contact-button:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* Основное содержимое */
+        .content {
+            margin-top: 60px;
+            min-height: calc(100vh - 60px);
+            padding: 20px;
+        }
+
+        /* Стили для вкладок */
+        .tab {
+            display: none;
+        }
+
+        .tab.active {
+            display: block;
+        }
+
+        /* Стили для первой вкладки */
+        .tab1-content {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+        }
+
+        .tab1-text {
+            flex: 1;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .tab1-image {
+            width: 120px;
+            height: auto;
             margin-top: 20px;
         }
-        
-        .author-button:hover {
-            background-color: #1565c0;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+
+        /* Стили для второй вкладки */
+        .tab2-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .work-block {
+            height: 400px;
+            background-color: rgba(50, 50, 50, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+
+        .work-text {
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            filter: blur(5px);
+        }
+
+        /* Стили для третьей вкладки */
+        .tab3-content {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            line-height: 2;
+            white-space: pre;
         }
     </style>
 </head>
 <body>
-    <div id="animated-title"></div>
-    <div class="subtitle">Проект Orgus</div>
-    <img src="logo.png" alt="Логотип проекта" class="logo-image">
-    <a href="https://vk.com/kataleps" class="author-button" target="_blank">Автор проекта</a>
+    <!-- Шапка сайта -->
+    <div class="header">
+        <div class="header-top">
+            Изготовление электро и духовых органов Orgus. Ремонт органов.
+        </div>
+        <div class="header-bottom">
+            <div class="nav-buttons">
+                <a href="#" class="nav-button active" data-tab="tab1">Главная</a>
+                <a href="#" class="nav-button" data-tab="tab2">Продукция</a>
+                <a href="#" class="nav-button" data-tab="tab3">Инфо</a>
+            </div>
+            <div class="contacts">
+                <span class="contact-text">Контакты</span>
+                <a href="https://vk.com/kataleps" class="contact-button" target="_blank">vk</a>
+                <button class="contact-button">
+                    tg
+                    <span class="tooltip">@SearAndRue</span>
+                </button>
+                <button class="contact-button">
+                    @
+                    <span class="tooltip">umkrat@gmail.com</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основное содержимое -->
+    <div class="content">
+        <!-- Вкладка 1 -->
+        <div id="tab1" class="tab active">
+            <div class="tab1-content">
+                <div class="tab1-text">
+                    <p>Разрешите представить вашему вниманию мою выпускную квалификационную работу на тему «Исполнительский анализ фортепианной транскрипции "Прелюдии, фуги и вариации" Сезара Франка».</p>
+                    
+                    <p>Выбор этой темы обусловлен несколькими причинами. Во-первых, меня давно привлекает органная музыка, особенно творчество французских композиторов XIX века. Сезар Франк — фигура уникальная: он сочетает в своём творчестве строгую полифоническую традицию и глубокую эмоциональность, романтическую выразительность и ясность формы. Во-вторых, именно «Прелюдия, фуга и вариация» — одно из самых репертуарных его произведений, как в органной, так и в фортепианной традиции. Транскрипции этой пьесы стали важным материалом для изучения не только музыкального текста, но и исполнительских подходов к его трактовке на другом инструменте.</p>
+                    
+                    <p>Цель моей работы — провести исполнительский анализ фортепианных транскрипций этого произведения, учитывая органную природу оригинала, особенности фактуры, стилистические черты и художественные задачи, которые стоят перед исполнителем.</p>
+                    
+                    <p>В первой главе я рассмотрел личность Сезара Франка в контексте музыкальной культуры XIX века. Этот период во Франции был временем стремительных изменений — политических, социальных и, конечно, культурных. В это время формировалась французская органная школа, происходило становление новых жанров, расширялись технические и выразительные возможности инструментов. Сезар Франк оказался в самом центре этих процессов: как органист, композитор и педагог, он оказал колоссальное влияние на последующие поколения. Его органные сочинения стали важной вехой в развитии симфонического стиля в органной музыке.</p>
+                    
+                    <p>Вторая глава посвящена анализу самого произведения — «Прелюдии, фуги и вариации», входящей в цикл «Шесть пьес».</p>
+                    
+                    <p>1. Fantaisie en ut majeur (Фантазия до мажор) - первая пьеса цикла, демонстрирующая мастерство Франка в использовании богатых гармоний и красочных регистров органа.</p>
+                    <p>2. Grand Pièce Symphonique (Большая симфоническая пьеса) - вторая пьеса цикла, представляющая собой широкомасштабное произведение с контрастными темами и настроениями.</p>
+                    <p>3. Prélude, Fugue et Variation (Прелюдия, фуга и вариация) - третья пьеса цикла, в которой Франк демонстрирует свое мастерство в использовании сложных полифонических структур.</p>
+                    <p>4. Pastorale (Пастораль) - четвертая пьеса цикла, характеризующаяся спокойным настроением.</p>
+                    <p>5. Prière (Молитва) - пятая пьеса цикла, представляющая собой глубоко личное и эмоциональное произведение.</p>
+                    <p>6. Final (Финал) - шестая пьеса цикла, демонстрирующая драматизм, характерный для многих органных произведений Франка.</p>
+                    
+                    <p>Оно написано в 1862 году, в период сотрудничества Франка с мастером органостроения Кавайе-Коллем. Произведение построено в форме трёхчастного цикла: лирической прелюдии, строгой фуги и заключительной вариации, которая репризно возвращает начальную тему, но в ином свете. Оно отличается исключительной органичностью формы, утончённой мелодикой, мягкой и насыщенной фактурой.</p>
+                    
+                    <p>Особое внимание в своей работе я уделил сравнению оригинала с фортепианными транскрипциями, прежде всего — версией Гарольда Бауэра. Эта транскрипция считается одной из наиболее тонких и бережных по отношению к оригиналу. Она позволяет глубже понять, как можно адаптировать органную фактуру для фортепиано, не потеряв ни тембровой насыщенности, ни полифонической ясности, ни эмоциональной выразительности.</p>
+                    
+                    <p>Фортепианный исполнитель сталкивается с рядом задач, которые я подробно рассмотрел в ходе анализа. Во-первых, необходимо имитировать органную регистровку — это требует точной педализации, управления динамикой и артикуляцией. Во-вторых, важно сохранить плавность фразировки и характер legato. В-третьих, возникает вопрос передачи полифонии: на фортепиано её нужно выстраивать особенно тщательно, так как в отличие от органа здесь нет возможности разнести голоса по мануалам.</p>
+                    
+                    <p>Бауэр решает эти задачи очень изящно: он добавляет октавные дублирования, усиливает бас, использует выразительную педаль и, где необходимо, адаптирует фактуру для удобства исполнения. Однако он делает это максимально деликатно, не искажая исходный замысел Франка. Его подход можно назвать художественным переводом, а не механическим переложением.</p>
+                    
+                    <p>Также в работе я рассмотрел особенности других транскрипций, включая авторскую версию Франка для фортепиано и фисгармонии. Эта версия содержит гораздо больше редакционных указаний, чем оригинал, и предназначалась для домашнего музицирования, что делает её особенно ценным источником интерпретационного варианта.</p>
+                    
+                    <p>В заключение хочу подчеркнуть, что данное исследование имеет практическую значимость для исполнителей, интересующихся репертуаром, находящимся на стыке органной и фортепианной традиций. Оно также актуально с точки зрения более широкого осмысления взаимодействия жанров, стилей и исполнительских школ. «Прелюдия, фуга и вариация» — произведение, которое, несмотря на свою камерность, раскрывает целый мир — глубоко личный, духовный, философский. И в этом заключается особая ценность его интерпретации на разных инструментах.</p>
+                </div>
+                <img src="logo.png" alt="Логотип Orgus" class="tab1-image">
+            </div>
+        </div>
+
+        <!-- Вкладка 2 -->
+        <div id="tab2" class="tab">
+            <div class="tab2-content">
+                <div class="work-block">
+                    <div class="work-text">ведутся работы</div>
+                </div>
+                <div class="work-block">
+                    <div class="work-text">ведутся работы</div>
+                </div>
+                <div class="work-block">
+                    <div class="work-text">ведутся работы</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка 3 -->
+        <div id="tab3" class="tab">
+            <div class="tab3-content">
+выдержка -50
+контраст +60
+резкость +90
+четкость +100
+красочность -30
+теплота +60
+оттенок +25
+точка черного -30
+яркость -10
+светлые участки +15
+            </div>
+        </div>
+    </div>
 
     <script>
-        const word = "KATALEPS";
-        const container = document.getElementById('animated-title');
-        
-        word.split('').forEach((letter, index) => {
-            const span = document.createElement('span');
-            span.className = 'letter';
-            span.textContent = letter;
-            span.style.animationDelay = `${index * 0.1}s`;
-            container.appendChild(span);
+        // Переключение между вкладками
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Удаляем активный класс у всех кнопок и вкладок
+                document.querySelectorAll('.nav-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Добавляем активный класс к текущей кнопке и вкладке
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
         });
     </script>
 </body>
