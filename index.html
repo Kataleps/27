@@ -12,7 +12,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #1a1a1a;
             font-family: 'Arial Black', sans-serif;
             color: white;
@@ -37,19 +37,40 @@
         .subtitle {
             font-size: 40px;
             opacity: 0.8;
-            margin: 20px 0 40px;
+            margin: 20px 0 30px;
         }
         
         .logo-image {
-            width: 600px; /* Увеличен в 3 раза от исходного 200px */
+            width: 480px; /* Уменьшено на 20% (было 600px) */
             height: auto;
             border-radius: 0;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
             transition: transform 0.3s ease;
+            margin-bottom: 40px;
         }
         
         .logo-image:hover {
             transform: scale(1.02);
+        }
+        
+        .author-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #1877f2; /* Синий цвет как в VK */
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        
+        .author-button:hover {
+            background-color: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
@@ -57,6 +78,7 @@
     <div id="animated-title"></div>
     <div class="subtitle">Проект Orgus</div>
     <img src="logo.png" alt="Логотип проекта" class="logo-image">
+    <a href="https://vk.com/kataleps" class="author-button" target="_blank">Автор проекта</a>
 
     <script>
         const word = "KATALEPS";
