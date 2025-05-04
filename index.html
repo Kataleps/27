@@ -194,17 +194,17 @@
 
         .tab1-image {
             width: 300px;
-            height: 300px;
+            height: 100%;
             object-fit: cover;
             border-radius: 10px;
             border: none;
             outline: none;
-            margin-bottom: 20px;
         }
 
         .image-column {
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
         /* Стили для второй вкладки */
@@ -217,22 +217,30 @@
         }
 
         .work-block {
-            height: 400px;
+            min-height: 400px;
             background-color: rgba(50, 50, 50, 0.6);
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             position: relative;
             overflow: hidden;
             border-radius: 10px;
             backdrop-filter: blur(5px);
+            padding: 20px;
         }
 
-        .work-text {
-            font-size: 48px;
-            color: rgba(255, 255, 255, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 15px;
+        .work-image {
+            width: 45%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .work-description {
+            width: 50%;
+            color: white;
+            font-size: 16px;
+            line-height: 1.6;
         }
 
         /* Стили для третьей вкладки */
@@ -301,6 +309,19 @@
             
             .subtitle {
                 font-size: 18px;
+            }
+            
+            .work-block {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .work-image, .work-description {
+                width: 100%;
+            }
+            
+            .work-description {
+                margin-top: 15px;
             }
             
             .nav-buttons {
@@ -398,7 +419,6 @@
             <div class="tab1-content">
                 <div class="image-column">
                     <img src="logo.png" alt="MIDI-орган" class="tab1-image">
-                    <img src="1.png" alt="MIDI-орган" class="tab1-image">
                     <img src="2.png" alt="MIDI-орган" class="tab1-image">
                 </div>
                 <div class="tab1-text">
@@ -442,13 +462,28 @@
         <div id="tab2" class="tab">
             <div class="tab2-content">
                 <div class="work-block">
-                    <div class="work-text">ведутся работы</div>
+                    <img src="op1.png" alt="Первый прототип" class="work-image">
+                    <div class="work-description">
+                        Первый прототип MIDI-консоли, мой личный инструмент, играю на нем каждый день, а так же исполнил более 10 концертов на разных площадках Нижнего Новгорода и соседних областей.
+                    </div>
                 </div>
                 <div class="work-block">
-                    <div class="work-text">ведутся работы</div>
+                    <img src="op2.png" alt="Инструмент под заказ" class="work-image">
+                    <div class="work-description">
+                        Инструмент, подобный указанному выше, созданный под заказ.
+                    </div>
                 </div>
                 <div class="work-block">
-                    <div class="work-text">ведутся работы</div>
+                    <img src="op3.png" alt="Переделанный советский орган" class="work-image">
+                    <div class="work-description">
+                        Переделанный советский оргáн Прелюдия-2, зазвучавший новыми красками, получивший много новых возможностей.
+                    </div>
+                </div>
+                <div class="work-block">
+                    <img src="op4.png" alt="Концертный инструмент" class="work-image">
+                    <div class="work-description">
+                        Концертный инструмент церкви евангельских христиан баптистов города Нижнего Новгорода.
+                    </div>
                 </div>
             </div>
         </div>
