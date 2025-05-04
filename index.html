@@ -225,6 +225,23 @@
     </div>
 
     <script>
+        // Добавляем обработчик для мобильных подсказок
+        const tooltips = document.querySelectorAll('.contact-button');
+        
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.contact-button')) {
+                tooltips.forEach(btn => btn.classList.remove('active'));
+            }
+        });
+
+        tooltips.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+            });
+        });
+
+        // Остальной JavaScript без изменений
         // Переключение между вкладками
         document.querySelectorAll('.nav-button').forEach(button => {
             button.addEventListener('click', function(e) {
