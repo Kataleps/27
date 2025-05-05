@@ -1,6 +1,4 @@
-ver 1.23
-
-ver 1.23
+ver 1.24
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -963,77 +961,75 @@ ver 1.23
         
         // Инициализация конфигуратора
         document.addEventListener('DOMContentLoaded', function() {
-            // Для обычных шагов (одиночный выбор)
-            document.querySelectorAll('.config-step:not(.multiple-select) .option-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.parentNode.querySelectorAll('.option-card').forEach(c => {
-                        c.classList.remove('selected');
-                    });
-                    this.classList.add('selected');
-                });
+        // Обработчики выбора опций
+        document.querySelectorAll('.config-step:not(.multiple-select) .option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.parentNode.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
             });
-
-            // Для шага с множественным выбором
-            document.querySelectorAll('.multiple-select .option-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.classList.toggle('selected');
-                });
-            });
-            
-            // Кнопка заказа
-            document.getElementById('order-button').addEventListener('click', function() {
-                alert('Спасибо за заказ! Мы обязательно свяжемся с вами для уточнения деталей!');
-            });
-            
-            // Обновляем прогресс-бар
-            updateProgress(1);
         });
+
+        document.querySelectorAll('.multiple-select .option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                if (document.getElementById('step7').classList.contains('active')) {
+                    updateSummary();
+                }
+            });
+        });
+
+        document.getElementById('order-button').addEventListener('click', function() {
+            alert('Спасибо за заказ! Мы свяжемся с вами для уточнения деталей.');
+        });
+        updateProgress(1);
+    });
+
+    function updateSummary() {
+        config.total = 0;
         
-        // Переход к следующему шагу
-        function nextStep(currentStep) {
-            // Проверяем, что опция выбрана
-            const selected = document.querySelector(`#step${currentStep} .option-card.selected`);
-            if (!selected && currentStep !== 6) { // На шаге 6 опции не обязательны
-                alert('Пожалуйста, выберите один из вариантов');
-                return;
+        // Собираем выбранные значения
+        const steps = [
+            {id: 'step1', prop: 'type'},
+            {id: 'step2', prop: 'keyboard'},
+            {id: 'step3', prop: 'prop: 'pedal'},
+            {id: 'step4', prop: 'sweller'},
+            {id: 'step5', prop: 'body'}
+        ];
+
+        steps.forEach(step => {
+            const card = document.querySelector(`#${step.id} .option-card.selected`);
+            if (card) {
+                config[step.prop] = card.dataset.value;
+                config.total += parseInt(card.dataset.price);
+                document.getElementById(`summary-${step.prop}`).textContent = optionNames[card.dataset.value] || '-';
             }
-            
-            // Сохраняем выбранную опцию
-            switch(currentStep) {
-                case 1:
-                    config.type = selected.dataset.value;
-                    config.total = parseInt(selected.dataset.price);
-                    
-                    // Если выбрана "Органная педаль", сразу переходим к итогу
-                    if (config.type === 'pedal') {
-                        skipToFinalStep();
-                        return;
-                    }
-                    break;
-                case 2:
-                    config.keyboard = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 3:
-                    config.pedal = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 4:
-                    config.sweller = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 5:
-                    config.body = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 6:
-                    // Для дополнительных опций можно выбрать несколько
-                    const selectedOptions = document.querySelectorAll(`#step${currentStep} .option-card.selected`);
-                    config.options = [];
-                    selectedOptions.forEach(opt => {
-                        config.options.push(opt.dataset.value);
-                        config.total += parseInt(opt.dataset.price);
-                    });
+        });
+
+        // Обработка множественного выбора
+        config.options = [];
+        document.querySelectorAll('#step6 .option-card.selected').forEach(opt => {
+            config.options.push(opt.dataset.value);
+            config.total += parseInt(opt.dataset.price);
+        });
+
+        document.getElementById('summary-options').textContent = 
+            config.options.length > 0 ? config.options.map(opt => optionNames[opt]).join(', ') : 'Нет';
+        
+        document.getElementById('total-price').textContent = `${config.total.toLocaleString()} ₽`;
+    }
+
+    function nextStep(currentStep) {
+        if (currentStep !== 6 && !document.querySelector(`#step${currentStep} .option-card.selected`)) {
+            alert('Пожалуйста, выберите один из вариантов');
+            return;
+        }
+        
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.getElementById(`step${currentStep + 1}`).classList.add('active');
+        updateProgress(currentStep + 1);
+        
+        if (currentStep + 1 === 7) updateSummary();
+    }
                     
                     // Обновляем итоговую страницу
                     updateSummary();
