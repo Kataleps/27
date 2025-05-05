@@ -698,220 +698,228 @@ ver 1.25
 </div>
 <!-- Вкладка 4: Конфигуратор -->
 <div class="tab" id="tab4">
-<div class="tab4-content">
-<div class="configurator">
-<div class="progress-bar">
-<div class="progress" id="progress"></div>
+  <div class="tab4-content">
+    <div class="configurator">
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      
+      <!-- Шаг 1: Тип органа -->
+      <div class="config-step active" id="step1">
+        <h2 class="step-title">Выберите тип органа</h2>
+        <div class="options-grid">
+          <div class="option-card" data-price="150000" data-value="home">
+            <div class="option-title">Домашний орган</div>
+            <p>Компактный вариант для дома или студии без встроенного компьютера, подключение к вашему устройству</p>
+            <div class="option-price">от 100 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="350000" data-value="concert">
+            <div class="option-title">Концертный орган</div>
+            <p>Профессиональный инструмент для выступлений со встроенным компьютером</p>
+            <div class="option-price">от 150 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="500000" data-value="church">
+            <div class="option-title">Церковный орган</div>
+            <p>Монументальный инструмент для храмов со встроенным компьютером и аудиосистемой</p>
+            <div class="option-price">от 250 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="90000" data-value="pedal">
+            <div class="option-title">Органная педаль</div>
+            <p>Отдельная педальная клавиатура для органа</p>
+            <div class="option-price">90 000 ₽</div>
+          </div>
+        </div>
+        <div class="config-nav-buttons">
+          <button class="config-nav-button secondary" disabled>Назад</button>
+          <button class="config-nav-button" onclick="nextStep(1)">Далее</button>
+        </div>
+      </div>
+      
+      <!-- Шаг 2: Клавиатура -->
+      <div class="config-step" id="step2">
+        <h2 class="step-title">Конфигурация клавиатуры</h2>
+        <div class="options-grid">
+          <div class="option-card" data-price="50000" data-value="2manuals">
+            <div class="option-title">2 мануала</div>
+            <p>Две ручные клавиатуры по 61 клавише</p>
+            <div class="option-price">+50 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="90000" data-value="3manuals">
+            <div class="option-title">3 мануала</div>
+            <p>Три ручные клавиатуры по 61 клавише</p>
+            <div class="option-price">+90 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="120000" data-value="custom">
+            <div class="option-title">Индивидуальная</div>
+            <p>Своя конфигурация по договоренности</p>
+            <div class="option-price">+120 000 ₽</div>
+          </div>
+        </div>
+        <div class="config-nav-buttons">
+          <button class="config-nav-button secondary" onclick="prevStep(2)">Назад</button>
+          <button class="config-nav-button" onclick="nextStep(2)">Далее</button>
+        </div>
+      </div>
+      
+      <!-- Шаг 3: Педаль -->
+      <div class="config-step" id="step3">
+        <h2 class="step-title">Педальная клавиатура</h2>
+        <div class="options-grid">
+          <div class="option-card" data-price="40000" data-value="standard">
+            <div class="option-title">Прямая</div>
+            <p>30 клавиш, прямая параллельная конструкция</p>
+            <div class="option-price">+40 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="70000" data-value="radial">
+            <div class="option-title">Радиальная</div>
+            <p>32 клавиши, радиальное расположение</p>
+            <div class="option-price">+70 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="0" data-value="none">
+            <div class="option-title">Без педали</div>
+            <p>Только ручные клавиатуры</p>
+            <div class="option-price">+0 ₽</div>
+          </div>
+        </div>
+        <div class="config-nav-buttons">
+          <button class="config-nav-button secondary" onclick="prevStep(3)">Назад</button>
+          <button class="config-nav-button" onclick="nextStep(3)">Далее</button>
+        </div>
+      </div>
+      
+      <!-- Шаг 4: Педали швеллера -->
+      <div class="config-step" id="step4">
+        <h2 class="step-title">Педали швеллера и пистоны</h2>
+        <div class="options-grid">
+          <div class="option-card" data-price="0" data-value="double_purpose">
+            <div class="option-title">Педаль двойного назначения</div>
+            <p>Швеллер + вальц и кнопка "вперед"</p>
+            <div class="option-price">+0 ₽</div>
+          </div>
+          <div class="option-card" data-price="10000" data-value="two_pedals">
+            <div class="option-title">Две педали швеллера</div>
+            <p>И педальная кнопка "вперед"</p>
+            <div class="option-price">+10 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="15000" data-value="custom_pedals">
+            <div class="option-title">Индивидуально</div>
+            <p>Своя конфигурация педалей</p>
+            <div class="option-price">+15 000 ₽</div>
+          </div>
+        </div>
+        <div class="config-nav-buttons">
+          <button class="config-nav-button secondary" onclick="prevStep(4)">Назад</button>
+          <button class="config-nav-button" onclick="nextStep(4)">Далее</button>
+        </div>
+      </div>
+      
+      <!-- Шаг 5: Корпус -->
+      <div class="config-step" id="step5">
+        <h2 class="step-title">Материал корпуса</h2>
+        <div class="options-grid">
+          <div class="option-card" data-price="80000" data-value="oak">
+            <div class="option-title">Бук</div>
+            <p>Классический благородный материал</p>
+            <div class="option-price">+20 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="70000" data-value="walnut">
+            <div class="option-title">Орех</div>
+            <p>Теплый оттенок и красивая текстура</p>
+            <div class="option-price">+40 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="50000" data-value="modern">
+            <div class="option-title">Упрощенный</div>
+            <p>Крашенная сосна в минималистичном дизайне</p>
+            <div class="option-price">+10 000 ₽</div>
+          </div>
+        </div>
+        <div class="config-nav-buttons">
+          <button class="config-nav-button secondary" onclick="prevStep(5)">Назад</button>
+          <button class="config-nav-button" onclick="nextStep(5)">Далее</button>
+        </div>
+      </div>
+      
+      <!-- Шаг 6: Дополнительно -->
+      <div class="config-step multiple-select" id="step6">
+        <h2 class="step-title">Дополнительные опции (можно выбрать несколько)</h2>
+        <div class="options-grid multiple-select">
+          <div class="option-card" data-price="30000" data-value="midi">
+            <div class="option-title">MIDI-интерфейс</div>
+            <p>Подключение к компьютеру и синтезаторам</p>
+            <div class="option-price">+0 ₽</div>
+          </div>
+          <div class="option-card" data-price="15000" data-value="light">
+            <div class="option-title">Подсветка</div>
+            <p>Декоративная подсветка корпуса</p>
+            <div class="option-price">+5 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="20000" data-value="stand">
+            <div class="option-title">Нерегулируемая скамейка</div>
+            <p>Для удобной игры сидя под ваши параметры</p>
+            <div class="option-price">+10 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="25000" data-value="transport">
+            <div class="option-title">Транспортировочный кейс</div>
+            <p>Защитный чехол для перевозки инструмента</p>
+            <div class="option-price">+25 000 ₽</div>
+          </div>
+          <div class="option-card" data-price="35000" data-value="audio">
+            <div class="option-title">Аудиосистема</div>
+            <p>Качественные колонки для полноценного звучания</p>
+            <div class="option-price">+35 000 ₽</div>
+          </div>
+        </div>
+        <div class="config-nav-buttons">
+          <button class="config-nav-button secondary" onclick="prevStep(6)">Назад</button>
+          <button class="config-nav-button" onclick="nextStep(6)">Далее</button>
+        </div>
+      </div>
+      
+      <!-- Шаг 7: Итог -->
+      <div class="config-step" id="step7">
+        <h2 class="step-title">Ваша конфигурация</h2>
+        <div class="config-preview" id="final-preview">
+          <img alt="Ваш орган" src="logo.png"/>
+        </div>
+        <div class="summary">
+          <div class="summary-item">
+            <span>Тип органа:</span>
+            <span id="summary-type">-</span>
+          </div>
+          <div class="summary-item">
+            <span>Клавиатура:</span>
+            <span id="summary-keyboard">-</span>
+          </div>
+          <div class="summary-item">
+            <span>Педаль:</span>
+            <span id="summary-pedal">-</span>
+          </div>
+          <div class="summary-item">
+            <span>Педали швеллера:</span>
+            <span id="summary-sweller">-</span>
+          </div>
+          <div class="summary-item">
+            <span>Корпус:</span>
+            <span id="summary-body">-</span>
+          </div>
+          <div class="summary-item">
+            <span>Дополнительно:</span>
+            <span id="summary-options">-</span>
+          </div>
+          <div class="total">
+            <span>Итого:</span>
+            <span id="total-price">0 ₽</span>
+          </div>
+        </div>
+        <div class="config-nav-buttons">
+          <button class="config-nav-button secondary" onclick="prevStep(7)">Назад</button>
+          <button class="config-nav-button" id="order-button">Оформить заказ</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- Шаг 1: Тип органа -->
-<div class="config-step active" id="step1">
-<h2 class="step-title">Выберите тип органа</h2>
-<div class="options-grid">
-<div class="option-card" data-price="150000" data-value="home">
-<div class="option-title">Домашний орган</div>
-<p>Компактный вариант для дома или студии без встроенного компьютера, подключение к вашему устройству</p>
-<div class="option-price">от 100 000 ₽</div>
-</div>
-<div class="option-card" data-price="350000" data-value="concert">
-<div class="option-title">Концертный орган</div>
-<p>Профессиональный инструмент для выступлений со встроенным компьютером</p>
-<div class="option-price">от 150 000 ₽</div>
-</div>
-<div class="option-card" data-price="500000" data-value="church">
-<div class="option-title">Церковный орган</div>
-<p>Монументальный инструмент для храмов со встроенным компьютером и аудиосистемой</p>
-<div class="option-price">от 250 000 ₽</div>
-</div>
-<div class="option-card" data-price="90000" data-value="pedal">
-<div class="option-title">Органная педаль</div>
-<p>Отдельная педальная клавиатура для органа</p>
-<div class="option-price">90 000 ₽</div>
-</div>
-</div>
-<div class="config-nav-buttons">
-<button class="config-nav-button secondary" disabled>Назад</button>
-<button class="config-nav-button" onclick="nextStep(1)">Далее</button>
-</div>
-</div>
-<!-- Шаг 2: Клавиатура -->
-<div class="config-step" id="step2">
-<h2 class="step-title">Конфигурация клавиатуры</h2>
-<div class="options-grid">
-<div class="option-card" data-price="50000" data-value="2manuals">
-<div class="option-title">2 мануала</div>
-<p>Две ручные клавиатуры по 61 клавише</p>
-<div class="option-price">+50 000 ₽</div>
-</div>
-<div class="option-card" data-price="90000" data-value="3manuals">
-<div class="option-title">3 мануала</div>
-<p>Три ручные клавиатуры по 61 клавише</p>
-<div class="option-price">+90 000 ₽</div>
-</div>
-<div class="option-card" data-price="120000" data-value="custom">
-<div class="option-title">Индивидуальная</div>
-<p>Своя конфигурация по договоренности</p>
-<div class="option-price">+120 000 ₽</div>
-</div>
-</div>
-<div class="config-nav-buttons">
-<button class="config-nav-button secondary" onclick="prevStep(2)">Назад</button>
-<button class="config-nav-button" onclick="nextStep(2)">Далее</button>
-</div>
-</div>
-<!-- Шаг 3: Педаль -->
-<div class="config-step" id="step3">
-<h2 class="step-title">Педальная клавиатура</h2>
-<div class="options-grid">
-<div class="option-card" data-price="40000" data-value="standard">
-<div class="option-title">Прямая</div>
-<p>30 клавиш, прямая параллельная конструкция</p>
-<div class="option-price">+40 000 ₽</div>
-</div>
-<div class="option-card" data-price="70000" data-value="radial">
-<div class="option-title">Радиальная</div>
-<p>32 клавиши, радиальное расположение</p>
-<div class="option-price">+70 000 ₽</div>
-</div>
-<div class="option-card" data-price="0" data-value="none">
-<div class="option-title">Без педали</div>
-<p>Только ручные клавиатуры</p>
-<div class="option-price">+0 ₽</div>
-</div>
-</div>
-<div class="config-nav-buttons">
-<button class="config-nav-button secondary" onclick="prevStep(3)">Назад</button>
-<button class="config-nav-button" onclick="nextStep(3)">Далее</button>
-</div>
-</div>
-<!-- Шаг 4: Педали швеллера -->
-<div class="config-step" id="step4">
-<h2 class="step-title">Педали швеллера и пистоны</h2>
-<div class="options-grid">
-<div class="option-card" data-price="0" data-value="double_purpose">
-<div class="option-title">Педаль двойного назначения</div>
-<p>Швеллер + вальц и кнопка "вперед"</p>
-<div class="option-price">+0 ₽</div>
-</div>
-<div class="option-card" data-price="10000" data-value="two_pedals">
-<div class="option-title">Две педали швеллера</div>
-<p>И педальная кнопка "вперед"</p>
-<div class="option-price">+10 000 ₽</div>
-</div>
-<div class="option-card" data-price="15000" data-value="custom_pedals">
-<div class="option-title">Индивидуально</div>
-<p>Своя конфигурация педалей</p>
-<div class="option-price">+15 000 ₽</div>
-</div>
-</div>
-<div class="config-nav-buttons">
-<button class="config-nav-button secondary" onclick="prevStep(4)">Назад</button>
-<button class="config-nav-button" onclick="nextStep(4)">Далее</button>
-</div>
-</div>
-<!-- Шаг 5: Корпус -->
-<div class="config-step" id="step5">
-<h2 class="step-title">Материал корпуса</h2>
-<div class="options-grid">
-<div class="option-card" data-price="80000" data-value="oak">
-<div class="option-title">Бук</div>
-<p>Классический благородный материал</p>
-<div class="option-price">+20 000 ₽</div>
-</div>
-<div class="option-card" data-price="70000" data-value="walnut">
-<div class="option-title">Орех</div>
-<p>Теплый оттенок и красивая текстура</p>
-<div class="option-price">+40 000 ₽</div>
-</div>
-<div class="option-card" data-price="50000" data-value="modern">
-<div class="option-title">Упрощенный</div>
-<p>Крашенная сосна в минималистичном дизайне</p>
-<div class="option-price">+10 000 ₽</div>
-</div>
-</div>
-<div class="config-nav-buttons">
-<button class="config-nav-button secondary" onclick="prevStep(5)">Назад</button>
-<button class="config-nav-button" onclick="nextStep(5)">Далее</button>
-</div>
-</div>
-<!-- Шаг 6: Дополнительно (множественный выбор) -->
-<div class="config-step multiple-select" id="step6">
-<h2 class="step-title">Дополнительные опции (можно выбрать несколько)</h2>
-<div class="options-grid multiple-select">
-<div class="option-card" data-price="30000" data-value="midi">
-<div class="option-title">MIDI-интерфейс</div>
-<p>Подключение к компьютеру и синтезаторам</p>
-<div class="option-price">+0 ₽</div>
-</div>
-<div class="option-card" data-price="15000" data-value="light">
-<div class="option-title">Подсветка</div>
-<p>Декоративная подсветка корпуса</p>
-<div class="option-price">+5 000 ₽</div>
-</div>
-<div class="option-card" data-price="20000" data-value="stand">
-<div class="option-title">Нерегулируемая скамейка</div>
-<p>Для удобной игры сидя под ваши параметры</p>
-<div class="option-price">+10 000 ₽</div>
-</div>
-<div class="option-card" data-price="25000" data-value="transport">
-<div class="option-title">Транспортировочный кейс</div>
-<p>Защитный чехол для перевозки инструмента</p>
-<div class="option-price">+25 000 ₽</div>
-</div>
-<div class="option-card" data-price="35000" data-value="audio">
-<div class="option-title">Аудиосистема</div>
-<p>Качественные колонки для полноценного звучания</p>
-<div class="option-price">+15000 ₽</div>
-</div>
-<div class="config-nav-buttons">
-<button class="config-nav-button secondary" onclick="prevStep(6)">Назад</button>
-<button class="config-nav-button" onclick="nextStep(6)">Далее</button>
-</div>
-</div>
-<!-- Шаг 7: Итог -->
-<div class="config-step" id="step7">
-<h2 class="step-title">Ваша конфигурация</h2>
-<div class="config-preview" id="final-preview">
-<img alt="Ваш орган" src="logo.png"/>
-</div>
-<div class="summary">
-<div class="summary-item">
-<span>Тип органа:</span>
-<span id="summary-type">-</span>
-</div>
-<div class="summary-item">
-<span>Клавиатура:</span>
-<span id="summary-keyboard">-</span>
-</div>
-<div class="summary-item">
-<span>Педаль:</span>
-<span id="summary-pedal">-</span>
-</div>
-<div class="summary-item">
-<span>Педали швеллера:</span>
-<span id="summary-sweller">-</span>
-</div>
-<div class="summary-item">
-<span>Корпус:</span>
-<span id="summary-body">-</span>
-</div>
-<div class="summary-item">
-<span>Дополнительно:</span>
-<span id="summary-options">-</span>
-</div>
-<div class="total">
-<span>Итого:</span>
-<span id="total-price">0 ₽</span>
-</div>
-</div>
-<div class="config-nav-buttons">
-<button class="config-nav-button secondary" onclick="prevStep(7)">Назад</button>
-<button class="config-nav-button" id="order-button">Оформить заказ</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <script>
 // Текущая конфигурация
 const config = {
@@ -975,6 +983,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Обновляем прогресс-бар
     updateProgress(1);
+    
+    // Принудительно показываем конфигуратор при загрузке (для теста)
+    document.getElementById('tab4').style.display = 'block';
+    setTimeout(() => {
+        document.getElementById('tab4').style.opacity = 1;
+    }, 100);
 });
 
 // Переход к следующему шагу
@@ -1105,7 +1119,7 @@ document.querySelectorAll('.nav-button[data-tab]').forEach(button => {
         e.preventDefault();
         
         // Удаляем активный класс у всех кнопок и вкладок
-        document.querySelectorAll('.nav-button[data-tab]').forEach(btn => {
+        document.querySelectorAll('.nav-button').forEach(btn => {
             btn.classList.remove('active');
         });
         document.querySelectorAll('.tab').forEach(tab => {
@@ -1115,11 +1129,14 @@ document.querySelectorAll('.nav-button[data-tab]').forEach(button => {
         // Добавляем активный класс к текущей кнопке и вкладке
         this.classList.add('active');
         const tabId = this.getAttribute('data-tab');
-        document.getElementById(tabId).classList.add('active');
-        
-        // Сбрасываем конфигуратор при повторном нажатии на вкладку
-        if (tabId === 'tab4') {
-            resetConfigurator();
+        const tab = document.getElementById(tabId);
+        if (tab) {
+            tab.classList.add('active');
+            
+            // Особый случай для конфигуратора
+            if (tabId === 'tab4') {
+                resetConfigurator();
+            }
         }
     });
 });
