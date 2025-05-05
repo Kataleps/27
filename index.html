@@ -1,13 +1,15 @@
-ver 1.19
+ver 1.21
+
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orgus - Органы</title>
-    <link rel="icon" href="logomini.png" type="image/png">
-    <link rel="shortcut icon" href="logomini.png" type="image/png">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Orgus - Органы</title>
+<link href="logomini.png" rel="icon" type="image/png"/>
+<link href="logomini.png" rel="shortcut icon" type="image/png"/>
+<style>
         /* Основные стили */
         body {
             margin: 0;
@@ -60,7 +62,7 @@ ver 1.19
         .header-bottom {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             padding: 0 60px 0 40px;
             background-color: rgba(0,0,0,0.15);
         }
@@ -93,6 +95,7 @@ ver 1.19
             display: flex;
             align-items: center;
             gap: 15px;
+            margin-left: auto;
         }
 
         .contact-button {
@@ -523,492 +526,446 @@ ver 1.19
     </style>
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <div class="header">
-        <div class="header-top">
-            <img src="logomini.png" alt="Orgus" class="logo-mini">
-            <div class="header-title">Изготовление оргáнов. Обслуживание и ремонт вашего инструмента.</div>
-        </div>
-        
-        <!-- Для мобильной версии - кнопка конфигуратора отдельно -->
-        <div class="mobile-config-button">
-            <a href="#" class="nav-button" data-tab="tab4">Конфигуратор органа</a>
-        </div>
-        
-        <div class="header-bottom">
-            <!-- Основные кнопки навигации -->
-            <div class="nav-buttons desktop">
-                <a href="#" class="nav-button active" data-tab="tab1">Главная</a>
-                <a href="#" class="nav-button" data-tab="tab2">Продукция</a>
-                <a href="#" class="nav-button" data-tab="tab3">Инфо</a>
-                <a href="#" class="nav-button" data-tab="tab4">Конфигуратор beta</a>
-            </div>
-            
-            <div class="nav-buttons mobile">
-                <a href="#" class="nav-button active" data-tab="tab1"></a>
-                <a href="#" class="nav-button" data-tab="tab2"></a>
-                <a href="#" class="nav-button" data-tab="tab3"></a>
-            </div>
-            
-            <div class="contacts">
-                <button class="contact-button" id="tg-button">
+<!-- Шапка сайта -->
+<div class="header">
+<div class="header-top">
+<img alt="Orgus" class="logo-mini" src="logomini.png"/>
+<div class="header-title">Изготовление оргáнов. Обслуживание и ремонт вашего инструмента.</div>
+</div>
+<!-- Для мобильной версии - кнопка конфигуратора отдельно -->
+<div class="mobile-config-button">
+<a class="nav-button" data-tab="tab4" href="#">Конфигуратор органа</a>
+</div>
+<div class="header-bottom">
+<!-- Основные кнопки навигации -->
+<div class="nav-buttons desktop">
+<a class="nav-button active" data-tab="tab1" href="#">Главная</a>
+<a class="nav-button" data-tab="tab2" href="#">Продукция</a>
+<a class="nav-button" data-tab="tab3" href="#">Инфо</a>
+<a class="nav-button" data-tab="tab4" href="#">Конфигуратор</a>
+</div>
+<div class="nav-buttons mobile">
+<a class="nav-button active" data-tab="tab1" href="#">Главная</a>
+<a class="nav-button" data-tab="tab2" href="#">Продукция</a>
+<a class="nav-button" data-tab="tab3" href="#">Инфо</a>
+</div>
+<div class="contacts">
+<button class="contact-button" id="tg-button">
                     tg
                     <span class="tooltip">@SearAndRue +79022410241</span>
-                </button>
-                <button class="contact-button" id="email-button">
+</button>
+<button class="contact-button" id="email-button">
                     @
                     <span class="tooltip">umkrat@gmail.com</span>
-                </button>
-                <a href="https://vk.com/kataleps" class="contact-button vk" target="_blank">vk</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Основное содержимое -->
-    <div class="content">
-        <!-- Вкладка 1: Главная -->
-        <div id="tab1" class="tab active">
-            <div class="tab1-content">
-                <div class="image-column">
-                    <img src="logo.png" alt="MIDI-орган" class="tab1-image">
-                    <img src="2.png" alt="MIDI-орган" class="tab1-image mobile-hide">
-                </div>
-                <div class="tab1-text">
-                    <h1 class="main-title">Ручное изготовление электронных органов под заказ</h1>
-                    <h2 class="subtitle">Живое дыхание органа — у вас дома.</h2>
-                    
-                    <p>Духовой оргáн — это самый грандиозный, самый сложный и один из самых впечатляющих музыкальных инструментов, когда-либо созданных человеком. Он состоит из сотен и даже тысяч труб, компрессоров, системы воздухораспределения и величественной кафедры — пульта управления, где рождается музыка.</p>
-                    
-                    <p>Исторически оргáны возводились в соборах, храмах и концертных залах. И это неудивительно — масштаб инструмента просто не позволяет разместить его где-то ещё. Одни только трубы могут достигать 20 метров в высоту и 5 метров в диаметре, а само помещение становится частью его звучания, продолжением резонанса, живым телом акустики.</p>
-                    
-                    <p>Но с величием приходит и ограниченность. Такой инструмент:</p>
-                    <ul>
-                        <li>невозможно переместить;</li>
-                        <li>нельзя использовать в любое удобное время;</li>
-                        <li>невозможно сделать личным и индивидуальным — орган всегда принадлежал пространству, но не исполнителю.</li>
-                    </ul>
-                    
-                    <p>Сейчас это изменилось.</p>
-                    
-                    <p>Благодаря современным технологиям, виртуальные копии настоящих органов — в сочетании с высококачественными MIDI-консолями — позволяют вам прикоснуться к величию инструмента в собственном доме, студии или даже в дороге.</p>
-                    
-                    <p>Мы изготавливаем MIDI-консоли вручную, под заказ, с учетом ваших пожеланий и потребностей. Это не фабричное изделие, а уникальный музыкальный инструмент, в котором каждая деталь продумана и сделана с душой. От механики клавиатур до финишной отделки — всё настраивается индивидуально.</p>
-                    
-                    <p>Что делает наши консоли особенными:</p>
-                    <ul>
-                        <li><strong>Подлинное звучание</strong> — каждое нажатие оживляет запись настоящей органной трубы, отцифрованной с исторического инструмента. Вы слышите живой духовой оргáн, а не его электронную имитацию.</li>
-                        <li><strong>Индивидуальный дизайн</strong> — вы сами выбираете размеры, материалы, отделку, форму. Хотите компактную консоль для дома или мобильную версию, которая помещается в багажник? Или роскошный фасад, вписывающийся в классический интерьер? Мы сделаем это.</li>
-                        <li><strong>Максимальная функциональность</strong> — полная совместимость с ведущими программами виртуальных органов, расширяемость, надёжность и комфорт исполнения.</li>
-                    </ul>
-                    
-                    <p>Электронный орган, который звучит как настоящий.<br>И принадлежит только вам.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Вкладка 2: Продукция -->
-        <div id="tab2" class="tab">
-            <div class="tab2-content">
-                <div class="work-block">
-                    <img src="op1.png" alt="Первый прототип" class="work-image">
-                    <div class="work-description">
+</button>
+<a class="contact-button vk" href="https://vk.com/kataleps" target="_blank">vk</a>
+</div>
+</div>
+</div>
+<!-- Основное содержимое -->
+<div class="content">
+<!-- Вкладка 1: Главная -->
+<div class="tab active" id="tab1">
+<div class="tab1-content">
+<div class="image-column">
+<img alt="MIDI-орган" class="tab1-image" src="logo.png"/>
+<img alt="MIDI-орган" class="tab1-image mobile-hide" src="2.png"/>
+</div>
+<div class="tab1-text">
+<h1 class="main-title">Ручное изготовление электронных органов под заказ</h1>
+<h2 class="subtitle">Живое дыхание органа — у вас дома.</h2>
+<p>Духовой оргáн — это самый грандиозный, самый сложный и один из самых впечатляющих музыкальных инструментов, когда-либо созданных человеком. Он состоит из сотен и даже тысяч труб, компрессоров, системы воздухораспределения и величественной кафедры — пульта управления, где рождается музыка.</p>
+<p>Исторически оргáны возводились в соборах, храмах и концертных залах. И это неудивительно — масштаб инструмента просто не позволяет разместить его где-то ещё. Одни только трубы могут достигать 20 метров в высоту и 5 метров в диаметре, а само помещение становится частью его звучания, продолжением резонанса, живым телом акустики.</p>
+<p>Но с величием приходит и ограниченность. Такой инструмент:</p>
+<ul>
+<li>невозможно переместить;</li>
+<li>нельзя использовать в любое удобное время;</li>
+<li>невозможно сделать личным и индивидуальным — орган всегда принадлежал пространству, но не исполнителю.</li>
+</ul>
+<p>Сейчас это изменилось.</p>
+<p>Благодаря современным технологиям, виртуальные копии настоящих органов — в сочетании с высококачественными MIDI-консолями — позволяют вам прикоснуться к величию инструмента в собственном доме, студии или даже в дороге.</p>
+<p>Мы изготавливаем MIDI-консоли вручную, под заказ, с учетом ваших пожеланий и потребностей. Это не фабричное изделие, а уникальный музыкальный инструмент, в котором каждая деталь продумана и сделана с душой. От механики клавиатур до финишной отделки — всё настраивается индивидуально.</p>
+<p>Что делает наши консоли особенными:</p>
+<ul>
+<li><strong>Подлинное звучание</strong> — каждое нажатие оживляет запись настоящей органной трубы, отцифрованной с исторического инструмента. Вы слышите живой духовой оргáн, а не его электронную имитацию.</li>
+<li><strong>Индивидуальный дизайн</strong> — вы сами выбираете размеры, материалы, отделку, форму. Хотите компактную консоль для дома или мобильную версию, которая помещается в багажник? Или роскошный фасад, вписывающийся в классический интерьер? Мы сделаем это.</li>
+<li><strong>Максимальная функциональность</strong> — полная совместимость с ведущими программами виртуальных органов, расширяемость, надёжность и комфорт исполнения.</li>
+</ul>
+<p>Электронный орган, который звучит как настоящий.<br/>И принадлежит только вам.</p>
+</div>
+</div>
+</div>
+<!-- Вкладка 2: Продукция -->
+<div class="tab" id="tab2">
+<div class="tab2-content">
+<div class="work-block">
+<img alt="Первый прототип" class="work-image" src="op1.png"/>
+<div class="work-description">
                         Первый прототип MIDI-консоли, мой личный инструмент, играю на нем каждый день, а так же исполнил более 10 концертов на разных площадках Нижнего Новгорода и соседних областей.
                     </div>
-                </div>
-                <div class="work-block">
-                    <img src="ped.png" alt="Педальная клавиатура" class="work-image">
-                    <div class="work-description">
+</div>
+<div class="work-block">
+<img alt="Педальная клавиатура" class="work-image" src="ped.png"/>
+<div class="work-description">
                         Важная часть любого оргáна - это его педальная клавиатура. Стандартом является прямая параллельная педаль на 30 клавиш, однако у нас можно заказать в любой конфигурации - длина, ширина, количество клавиш - как угодно. Выполнена она из бука - не менее красивого дерева, чем дуб, ноднако, не уступающего ему в проччности. Изготовление педали возможно так же отдельно, специально для определенного оргáна, и не обязательно цифрового.
                     </div>
-                </div>
-                <div class="work-block">
-                    <img src="op2.png" alt="Инструмент под заказ" class="work-image">
-                    <div class="work-description">
+</div>
+<div class="work-block">
+<img alt="Инструмент под заказ" class="work-image" src="op2.png"/>
+<div class="work-description">
                         Инструмент, подобный указанному выше, созданный под заказ.
                     </div>
-                </div>
-                <div class="work-block">
-                    <img src="op3.png" alt="Переделанный советский орган" class="work-image">
-                    <div class="work-description">
+</div>
+<div class="work-block">
+<img alt="Переделанный советский орган" class="work-image" src="op3.png"/>
+<div class="work-description">
                         Переделанный советский оргáн Прелюдия-2, зазвучавший новыми красками, получивший много новых возможностей.
                     </div>
-                </div>
-                <div class="work-block">
-                    <img src="op4.png" alt="Концертный инструмент" class="work-image">
-                    <div class="work-description">
+</div>
+<div class="work-block">
+<img alt="Концертный инструмент" class="work-image" src="op4.png"/>
+<div class="work-description">
                         Концертный инструмент церкви евангельских христиан баптистов города Нижнего Новгорода.
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Вкладка 3: Инфо -->
-        <div id="tab3" class="tab">
-            <div class="tab3-content">
-                <div class="location">
-                    <div class="location-title">Наше производство</div>
-                    <p>Все инструменты изготавливаются вручную в городе Нижний Новгород — одном из исторических центров органного искусства России. Город с богатыми музыкальными традициями, где переплетаются современные технологии и многовековой опыт создания музыкальных инструментов.</p>
-                </div>
-
-                <h2>Изготовление электронных MIDI-органов: от теории к практике</h2>
-                
-                <h3>Что такое MIDI?</h3>
-                <p>MIDI (Musical Instrument Digital Interface) — это стандарт цифровой передачи музыкальных данных, разработанный в 1980-х годах. В отличие от аудиосигнала, MIDI не передаёт звук напрямую, а содержит команды: какая нота нажата, с какой силой, как долго она звучит и т. д. Это позволяет управлять виртуальными инструментами, синтезаторами и даже целыми оркестрами с одного контроллера.</p>
-                
-                <p>MIDI-орган — это электронный орган, который вместо традиционных труб или цифровых сэмплов использует MIDI-сообщения для воспроизведения звука через компьютер или внешний синтезатор.</p>
-                
-                <h3>Как создают MIDI-органы?</h3>
-                <h4>Конструкция клавиатур</h4>
-                <p>Используются механические клавиши (например, от старых органов или фортепиано) либо специализированные MID-контроллеры.</p>
-                <p>Важно обеспечить реалистичную механику, особенно для педальной клавиатуры.</p>
-                <p>Датчики (оптические, резистивные или магнитные датчики Холла) фиксируют нажатия и преобразуют их в MIDI-сигналы.</p>
-                
-                <h4>Электроника</h4>
-                <p>Контроллеры собственной разработки обрабатывают сигналы с клавиш и педали.</p>
-                <p>Для передачи данных используется MIDI-интерфейс USB для простоты подключения.</p>
-                
-                <h4>Программное обеспечение</h4>
-                <p>Виртуальные органы (Hauptwerk, GrandOrgue) получают MIDI-данные и воспроизводят сэмплы реальных органов.</p>
-                <p>Возможна настройка тембров, темпераций, строя, акустики и даже моделирование работы конкретных соборных органов с возможностью выбора расположения исполнителя относительно органа.</p>
-                
-                <h4>Корпус и акустика</h4>
-                <p>Безусловно, я могу изготовить корпус любого формата: аутентичный с деревянными трубами (для декора), различные компактные решения с мультимедийными колонками.</p>
-                
-                <h3>Hauptwerk — вершина виртуальных органов</h3>
-                <p>Hauptwerk — это профессиональное ПО для эмуляции органов, использующее сэмплы реальных инструментов с высокой детализацией. Поддерживается:</p>
-                <ul>
-                    <li>Многоканальный звук для акустического пространства.</li>
-                    <li>Работу с педалями швеллера, вальцшвеллера и регистрами.</li>
-                    <li>Подключение нескольких MIDI-консолей и педальных блоков.</li>
-                </ul>
-                <p>С Hauptwerk даже домашний MIDI-орган может звучать как орган собора Нотр-Дам или Сикстинской капеллы.</p>
-                
-                <h3>Заключение</h3>
-                <p>Создание MIDI-органа — это сочетание инженерного мастерства и музыкального творчества. Такой инструмент открывает доступ к бесконечной библиотеке звуков и возможностям настройки, оставаясь при этом более доступным, чем традиционные органы. Благодаря технологиям вроде Hauptwerk, каждый может прикоснуться к миру органной музыки, не выходя из дома.</p>
-                <div class="location-title">По всем вопросам и ценам - пишите или звоните по подсказкам в верхнем праввом углу экрана.</div>
-            </div>
-        </div>
-
-        <!-- Вкладка 4: Конфигуратор -->
-        <div id="tab4" class="tab">
-            <div class="tab4-content">
-                <div class="configurator">
-                    <div class="progress-bar">
-                        <div class="progress" id="progress"></div>
-                    </div>
-                    
-                    <!-- Шаг 1: Тип органа -->
-                    <div class="config-step active" id="step1">
-                        <h2 class="step-title">Выберите тип органа</h2>
-                        <div class="options-grid">
-                            <div class="option-card" data-value="home" data-price="150000">
-                                <div class="option-title">Домашний орган</div>
-                                <p>Компактный вариант для дома или студии</p>
-                                <div class="option-price">от 150 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="concert" data-price="350000">
-                                <div class="option-title">Концертный орган</div>
-                                <p>Профессиональный инструмент для выступлений</p>
-                                <div class="option-price">от 350 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="church" data-price="500000">
-                                <div class="option-title">Церковный орган</div>
-                                <p>Монументальный инструмент для храмов</p>
-                                <div class="option-price">от 500 000 ₽</div>
-                            </div>
-                        </div>
-                        <div class="config-nav-buttons">
-                            <button class="config-nav-button secondary" disabled>Назад</button>
-                            <button class="config-nav-button" onclick="nextStep(1)">Далее</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Шаг 2: Клавиатура -->
-                    <div class="config-step" id="step2">
-                        <h2 class="step-title">Конфигурация клавиатуры</h2>
-                        <div class="options-grid">
-                            <div class="option-card" data-value="2manuals" data-price="50000">
-                                <div class="option-title">2 мануала</div>
-                                <p>Две ручные клавиатуры по 61 клавише</p>
-                                <div class="option-price">+50 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="3manuals" data-price="90000">
-                                <div class="option-title">3 мануала</div>
-                                <p>Три ручные клавиатуры по 61 клавише</p>
-                                <div class="option-price">+90 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="custom" data-price="120000">
-                                <div class="option-title">Индивидуальная</div>
-                                <p>Своя конфигурация (укажем позже)</p>
-                                <div class="option-price">+120 000 ₽</div>
-                            </div>
-                        </div>
-                        <div class="config-nav-buttons">
-                            <button class="config-nav-button secondary" onclick="prevStep(2)">Назад</button>
-                            <button class="config-nav-button" onclick="nextStep(2)">Далее</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Шаг 3: Педаль -->
-                    <div class="config-step" id="step3">
-                        <h2 class="step-title">Педальная клавиатура</h2>
-                        <div class="options-grid">
-                            <div class="option-card" data-value="standard" data-price="40000">
-                                <div class="option-title">Стандартная</div>
-                                <p>30 педалей, параллельная конструкция</p>
-                                <div class="option-price">+40 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="radial" data-price="70000">
-                                <div class="option-title">Радиальная</div>
-                                <p>32 педали, радиальное расположение</p>
-                                <div class="option-price">+70 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="none" data-price="0">
-                                <div class="option-title">Без педали</div>
-                                <p>Только ручные клавиатуры</p>
-                                <div class="option-price">+0 ₽</div>
-                            </div>
-                        </div>
-                        <div class="config-nav-buttons">
-                            <button class="config-nav-button secondary" onclick="prevStep(3)">Назад</button>
-                            <button class="config-nav-button" onclick="nextStep(3)">Далее</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Шаг 4: Педали швеллера -->
-                    <div class="config-step" id="step4">
-                        <h2 class="step-title">Педали швеллера и пистоны</h2>
-                        <div class="options-grid">
-                            <div class="option-card" data-value="double_purpose" data-price="0">
-                                <div class="option-title">Педаль двойного назначения</div>
-                                <p>Швеллер + вальц и кнопка "вперед"</p>
-                                <div class="option-price">+0 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="two_pedals" data-price="10000">
-                                <div class="option-title">Две педали швеллера</div>
-                                <p>И педальная кнопка "вперед"</p>
-                                <div class="option-price">+10 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="custom_pedals" data-price="15000">
-                                <div class="option-title">Индивидуально</div>
-                                <p>Своя конфигурация педалей</p>
-                                <div class="option-price">+15 000 ₽</div>
-                            </div>
-                        </div>
-                        <div class="config-nav-buttons">
-                            <button class="config-nav-button secondary" onclick="prevStep(4)">Назад</button>
-                            <button class="config-nav-button" onclick="nextStep(4)">Далее</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Шаг 5: Корпус -->
-                    <div class="config-step" id="step5">
-                        <h2 class="step-title">Материал корпуса</h2>
-                        <div class="options-grid">
-                            <div class="option-card" data-value="oak" data-price="80000">
-                                <div class="option-title">Дуб</div>
-                                <p>Классический благородный материал</p>
-                                <div class="option-price">+80 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="walnut" data-price="70000">
-                                <div class="option-title">Орех</div>
-                                <p>Теплый оттенок и красивая текстура</p>
-                                <div class="option-price">+70 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="modern" data-price="50000">
-                                <div class="option-title">Современный</div>
-                                <p>Металл и стекло в минималистичном дизайне</p>
-                                <div class="option-price">+50 000 ₽</div>
-                            </div>
-                        </div>
-                        <div class="config-nav-buttons">
-                            <button class="config-nav-button secondary" onclick="prevStep(5)">Назад</button>
-                            <button class="config-nav-button" onclick="nextStep(5)">Далее</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Шаг 6: Дополнительно (множественный выбор) -->
-                    <div class="config-step" id="step6">
-                        <h2 class="step-title">Дополнительные опции (можно выбрать несколько)</h2>
-                        <div class="options-grid multiple-select">
-                            <div class="option-card" data-value="midi" data-price="30000">
-                                <div class="option-title">MIDI-интерфейс</div>
-                                <p>Подключение к компьютеру и синтезаторам</p>
-                                <div class="option-price">+30 000 ₽</div>
-                            </div>
-                            <div class="option-card" data-value="light" data-price="15000">
-                                <div class="option-title">Подсветка</div>
-                                <p>Декоративная подсветка корпуса</p>
-                                <div class="option-price">+15 000 ₽</div>
-                            </div>
-                                                       <div class="option-card" data-value="stand" data-price="20000">
-                                <div class="option-title">Регулируемая подставка</div>
-                                <p>Для удобной игры стоя или сидя</p>
-                                <div class="option-price">+20 000 ₽</div>
-                            </div>
-                        </div>
-                        <div class="config-nav-buttons">
-                            <button class="config-nav-button secondary" onclick="prevStep(6)">Назад</button>
-                            <button class="config-nav-button" onclick="nextStep(6)">Далее</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Шаг 7: Итог -->
-                    <div class="config-step" id="step7">
-                        <h2 class="step-title">Ваша конфигурация</h2>
-                        <div class="config-preview" id="final-preview">
-                            <img src="logo.png" alt="Ваш орган">
-                        </div>
-                        <div class="summary">
-                            <div class="summary-item">
-                                <span>Тип органа:</span>
-                                <span id="summary-type">-</span>
-                            </div>
-                            <div class="summary-item">
-                                <span>Клавиатура:</span>
-                                <span id="summary-keyboard">-</span>
-                            </div>
-                            <div class="summary-item">
-                                <span>Педаль:</span>
-                                <span id="summary-pedal">-</span>
-                            </div>
-                            <div class="summary-item">
-                                <span>Педали швеллера:</span>
-                                <span id="summary-sweller">-</span>
-                            </div>
-                            <div class="summary-item">
-                                <span>Корпус:</span>
-                                <span id="summary-body">-</span>
-                            </div>
-                            <div class="summary-item">
-                                <span>Дополнительно:</span>
-                                <span id="summary-options">-</span>
-                            </div>
-                            <div class="total">
-                                <span>Итого:</span>
-                                <span id="total-price">0 ₽</span>
-                            </div>
-                        </div>
-                        <div class="config-nav-buttons">
-                            <button class="config-nav-button secondary" onclick="prevStep(7)">Назад</button>
-                            <button class="config-nav-button" id="order-button">Оформить заказ</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Текущая конфигурация
-        const config = {
-            type: null,
-            keyboard: null,
-            pedal: null,
-            sweller: null,
-            body: null,
-            options: [],
-            total: 0
-        };
-        
-        // Названия опций для отображения
-        const optionNames = {
-            home: "Домашний орган",
-            concert: "Концертный орган",
-            church: "Церковный орган",
-            "2manuals": "2 мануала",
-            "3manuals": "3 мануала",
-            custom: "Индивидуальная",
-            standard: "Стандартная педаль",
-            radial: "Радиальная педаль",
-            none: "Без педали",
-            double_purpose: "Педаль двойного назначения",
-            two_pedals: "Две педали швеллера",
-            custom_pedals: "Индивидуальная конфигурация",
-            oak: "Дубовый корпус",
-            walnut: "Ореховый корпус",
-            modern: "Современный дизайн",
-            midi: "MIDI-интерфейс",
-            light: "Подсветка",
-            transport: "Транспортировочный кейс",
-            stand: "Регулируемая подставка"
-        };
-        
-        // Инициализация конфигуратора
-        document.addEventListener('DOMContentLoaded', function() {
-            // Для обычных шагов (одиночный выбор)
-            document.querySelectorAll('.config-step:not(.multiple-select) .option-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.parentNode.querySelectorAll('.option-card').forEach(c => {
-                        c.classList.remove('selected');
-                    });
-                    this.classList.add('selected');
-                });
-            });
-
-            // Для шага с множественным выбором
-            document.querySelectorAll('.multiple-select .option-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.classList.toggle('selected');
-                });
-            });
-            
-            // Кнопка заказа
-            document.getElementById('order-button').addEventListener('click', function() {
-                alert('Спасибо за заказ! Мы свяжемся с вами для уточнения деталей.');
-            });
-            
-            // Обновляем прогресс-бар
-            updateProgress(1);
-        });
-        
-        // Переход к следующему шагу
-        function nextStep(currentStep) {
-            // Проверяем, что опция выбрана
-            const selected = document.querySelector(`#step${currentStep} .option-card.selected`);
-            if (!selected && currentStep !== 6) { // На шаге 6 опции не обязательны
-                alert('Пожалуйста, выберите один из вариантов');
-                return;
-            }
-            
-            // Сохраняем выбранную опцию
-            switch(currentStep) {
-                case 1:
-                    config.type = selected.dataset.value;
-                    config.total = parseInt(selected.dataset.price);
-                    break;
-                case 2:
-                    config.keyboard = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 3:
-                    config.pedal = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 4:
-                    config.sweller = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 5:
-                    config.body = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 6:
-                    // Для дополнительных опций можно выбрать несколько
-                    const selectedOptions = document.querySelectorAll(`#step${currentStep} .option-card.selected`);
-                    config.options = [];
-                    selectedOptions.forEach(opt => {
-                        config.options.push(opt.dataset.value);
-                        config.total += parseInt(opt.dataset.price);
-                    });
-                    
-                    // Обновляем итоговую страницу
-                    updateSummary();
-                    break;
-            }
-            
-            // Переходим к следующему шагу
-            document.getElementById(`step${currentStep}`).classList.remove('active');
+</div>
+</div>
+</div>
+<!-- Вкладка 3: Инфо -->
+<div class="tab" id="tab3">
+<div class="tab3-content">
+<div class="location">
+<div class="location-title">Наше производство</div>
+<p>Все инструменты изготавливаются вручную в городе Нижний Новгород — одном из исторических центров органного искусства России. Город с богатыми музыкальными традициями, где переплетаются современные технологии и многовековой опыт создания музыкальных инструментов.</p>
+</div>
+<h2>Изготовление электронных MIDI-органов: от теории к практике</h2>
+<h3>Что такое MIDI?</h3>
+<p>MIDI (Musical Instrument Digital Interface) — это стандарт цифровой передачи музыкальных данных, разработанный в 1980-х годах. В отличие от аудиосигнала, MIDI не передаёт звук напрямую, а содержит команды: какая нота нажата, с какой силой, как долго она звучит и т. д. Это позволяет управлять виртуальными инструментами, синтезаторами и даже целыми оркестрами с одного контроллера.</p>
+<p>MIDI-орган — это электронный орган, который вместо традиционных труб или цифровых сэмплов использует MIDI-сообщения для воспроизведения звука через компьютер или внешний синтезатор.</p>
+<h3>Как создают MIDI-органы?</h3>
+<h4>Конструкция клавиатур</h4>
+<p>Используются механические клавиши (например, от старых органов или фортепиано) либо специализированные MID-контроллеры.</p>
+<p>Важно обеспечить реалистичную механику, особенно для педальной клавиатуры.</p>
+<p>Датчики (оптические, резистивные или магнитные датчики Холла) фиксируют нажатия и преобразуют их в MIDI-сигналы.</p>
+<h4>Электроника</h4>
+<p>Контроллеры собственной разработки обрабатывают сигналы с клавиш и педали.</p>
+<p>Для передачи данных используется MIDI-интерфейс USB для простоты подключения.</p>
+<h4>Программное обеспечение</h4>
+<p>Виртуальные органы (Hauptwerk, GrandOrgue) получают MIDI-данные и воспроизводят сэмплы реальных органов.</p>
+<p>Возможна настройка тембров, темпераций, строя, акустики и даже моделирование работы конкретных соборных органов с возможностью выбора расположения исполнителя относительно органа.</p>
+<h4>Корпус и акустика</h4>
+<p>Безусловно, я могу изготовить корпус любого формата: аутентичный с деревянными трубами (для декора), различные компактные решения с мультимедийными колонками.</p>
+<h3>Hauptwerk — вершина виртуальных органов</h3>
+<p>Hauptwerk — это профессиональное ПО для эмуляции органов, использующее сэмплы реальных инструментов с высокой детализацией. Поддерживается:</p>
+<ul>
+<li>Многоканальный звук для акустического пространства.</li>
+<li>Работу с педалями швеллера, вальцшвеллера и регистрами.</li>
+<li>Подключение нескольких MIDI-консолей и педальных блоков.</li>
+</ul>
+<p>С Hauptwerk даже домашний MIDI-орган может звучать как орган собора Нотр-Дам или Сикстинской капеллы.</p>
+<h3>Заключение</h3>
+<p>Создание MIDI-органа — это сочетание инженерного мастерства и музыкального творчества. Такой инструмент открывает доступ к бесконечной библиотеке звуков и возможностям настройки, оставаясь при этом более доступным, чем традиционные органы. Благодаря технологиям вроде Hauptwerk, каждый может прикоснуться к миру органной музыки, не выходя из дома.</p>
+<div class="location-title">По всем вопросам и ценам - пишите или звоните по подсказкам в верхнем праввом углу экрана.</div>
+</div>
+</div>
+<!-- Вкладка 4: Конфигуратор -->
+<div class="tab" id="tab4">
+<div class="tab4-content">
+<div class="configurator">
+<div class="progress-bar">
+<div class="progress" id="progress"></div>
+</div>
+<!-- Шаг 1: Тип органа -->
+<div class="config-step active" id="step1">
+<h2 class="step-title">Выберите тип органа</h2>
+<div class="options-grid">
+<div class="option-card" data-price="150000" data-value="home">
+<div class="option-title">Домашний орган</div>
+<p>Компактный вариант для дома или студии без встроенного компьютера, подключение к вашему устройству</p>
+<div class="option-price">от 100 000 ₽</div>
+</div>
+<div class="option-card" data-price="350000" data-value="concert">
+<div class="option-title">Концертный орган</div>
+<p>Профессиональный инструмент для выступлений со встроенным компьютером</p>
+<div class="option-price">от 150 000 ₽</div>
+</div>
+<div class="option-card" data-price="500000" data-value="church">
+<div class="option-title">Церковный орган</div>
+<p>Монументальный инструмент для храмов со встроенным компьютером и аудиосистемой</p>
+<div class="option-price">от 250 000 ₽</div>
+</div>
+<div class="option-card" data-price="90000" data-value="pedal-only">
+<div class="option-title">Органная педаль</div>
+<p>Отдельная педальная клавиатура для органа</p>
+<div class="option-price">90 000 ₽</div>
+</div>
+</div>
+<div class="config-nav-buttons">
+<button class="config-nav-button secondary" disabled="">Назад</button>
+<button class="config-nav-button" onclick="nextStep(1)">Далее</button>
+</div>
+</div>
+<!-- Шаг 2: Клавиатура -->
+<div class="config-step" id="step2">
+<h2 class="step-title">Конфигурация клавиатуры</h2>
+<div class="options-grid">
+<div class="option-card" data-price="50000" data-value="2manuals">
+<div class="option-title">2 мануала</div>
+<p>Две ручные клавиатуры по 61 клавише</p>
+<div class="option-price">+50 000 ₽</div>
+</div>
+<div class="option-card" data-price="90000" data-value="3manuals">
+<div class="option-title">3 мануала</div>
+<p>Три ручные клавиатуры по 61 клавише</p>
+<div class="option-price">+90 000 ₽</div>
+</div>
+<div class="option-card" data-price="120000" data-value="custom">
+<div class="option-title">Индивидуальная</div>
+<p>Своя конфигурация по договоренности</p>
+<div class="option-price">+120 000 ₽</div>
+</div>
+</div>
+<div class="config-nav-buttons">
+<button class="config-nav-button secondary" onclick="prevStep(2)">Назад</button>
+<button class="config-nav-button" onclick="nextStep(2)">Далее</button>
+</div>
+</div>
+<!-- Шаг 3: Педаль -->
+<div class="config-step" id="step3">
+<h2 class="step-title">Педальная клавиатура</h2>
+<div class="options-grid">
+<div class="option-card" data-price="40000" data-value="standard">
+<div class="option-title">Прямая</div>
+<p>30 клавиш, прямая параллельная конструкция</p>
+<div class="option-price">+40 000 ₽</div>
+</div>
+<div class="option-card" data-price="70000" data-value="radial">
+<div class="option-title">Радиальная</div>
+<p>32 клавиши, радиальное расположение</p>
+<div class="option-price">+70 000 ₽</div>
+</div>
+<div class="option-card" data-price="0" data-value="none">
+<div class="option-title">Без педали</div>
+<p>Только ручные клавиатуры</p>
+<div class="option-price">+0 ₽</div>
+</div>
+</div>
+<div class="config-nav-buttons">
+<button class="config-nav-button secondary" onclick="prevStep(3)">Назад</button>
+<button class="config-nav-button" onclick="nextStep(3)">Далее</button>
+</div>
+</div>
+<!-- Шаг 4: Педали швеллера -->
+<div class="config-step" id="step4">
+<h2 class="step-title">Педали швеллера и пистоны</h2>
+<div class="options-grid">
+<div class="option-card" data-price="0" data-value="double_purpose">
+<div class="option-title">Педаль двойного назначения</div>
+<p>Швеллер + вальц и кнопка "вперед"</p>
+<div class="option-price">+0 ₽</div>
+</div>
+<div class="option-card" data-price="10000" data-value="two_pedals">
+<div class="option-title">Две педали швеллера</div>
+<p>И педальная кнопка "вперед"</p>
+<div class="option-price">+10 000 ₽</div>
+</div>
+<div class="option-card" data-price="15000" data-value="custom_pedals">
+<div class="option-title">Индивидуально</div>
+<p>Своя конфигурация педалей</p>
+<div class="option-price">+15 000 ₽</div>
+</div>
+</div>
+<div class="config-nav-buttons">
+<button class="config-nav-button secondary" onclick="prevStep(4)">Назад</button>
+<button class="config-nav-button" onclick="nextStep(4)">Далее</button>
+</div>
+</div>
+<!-- Шаг 5: Корпус -->
+<div class="config-step" id="step5">
+<h2 class="step-title">Материал корпуса</h2>
+<div class="options-grid">
+<div class="option-card" data-price="80000" data-value="oak">
+<div class="option-title">Бук</div>
+<p>Классический благородный материал</p>
+<div class="option-price">+20 000 ₽</div>
+</div>
+<div class="option-card" data-price="70000" data-value="walnut">
+<div class="option-title">Орех</div>
+<p>Теплый оттенок и красивая текстура</p>
+<div class="option-price">+40 000 ₽</div>
+</div>
+<div class="option-card" data-price="50000" data-value="modern">
+<div class="option-title">Упрощенный</div>
+<p>Крашенная сосна в минималистичном дизайне</p>
+<div class="option-price">+10 000 ₽</div>
+</div>
+</div>
+<div class="config-nav-buttons">
+<button class="config-nav-button secondary" onclick="prevStep(5)">Назад</button>
+<button class="config-nav-button" onclick="nextStep(5)">Далее</button>
+</div>
+</div>
+<!-- Шаг 6: Дополнительно (множественный выбор) -->
+<div class="config-step" id="step6">
+<h2 class="step-title">Дополнительные опции (можно выбрать несколько)</h2>
+<div class="options-grid multiple-select">
+<div class="option-card" data-price="30000" data-value="midi">
+<div class="option-title">MIDI-интерфейс</div>
+<p>Подключение к компьютеру и синтезаторам</p>
+<div class="option-price">+0 ₽</div>
+</div>
+<div class="option-card" data-price="15000" data-value="light">
+<div class="option-title">Подсветка</div>
+<p>Декоративная подсветка корпуса</p>
+<div class="option-price">+5 000 ₽</div>
+</div>
+<div class="option-card" data-price="20000" data-value="stand">
+<div class="option-title">Нерегулируемая скамейка</div>
+<p>Для удобной игры сидя под ваши параметры</p>
+<div class="option-price">+10 000 ₽</div>
+</div>
+</div>
+<div class="config-nav-buttons">
+<button class="config-nav-button secondary" onclick="prevStep(6)">Назад</button>
+<button class="config-nav-button" onclick="nextStep(6)">Далее</button>
+</div>
+</div>
+<!-- Шаг 7: Итог -->
+<div class="config-step" id="step7">
+<h2 class="step-title">Ваша конфигурация</h2>
+<div class="config-preview" id="final-preview">
+<img alt="Ваш орган" src="logo.png"/>
+</div>
+<div class="summary">
+<div class="summary-item">
+<span>Тип органа:</span>
+<span id="summary-type">-</span>
+</div>
+<div class="summary-item">
+<span>Клавиатура:</span>
+<span id="summary-keyboard">-</span>
+</div>
+<div class="summary-item">
+<span>Педаль:</span>
+<span id="summary-pedal">-</span>
+</div>
+<div class="summary-item">
+<span>Педали швеллера:</span>
+<span id="summary-sweller">-</span>
+</div>
+<div class="summary-item">
+<span>Корпус:</span>
+<span id="summary-body">-</span>
+</div>
+<div class="summary-item">
+<span>Дополнительно:</span>
+<span id="summary-options">-</span>
+</div>
+<div class="total">
+<span>Итого:</span>
+<span id="total-price">0 ₽</span>
+</div>
+</div>
+<div class="config-nav-buttons">
+ <button class="config-nav-button secondary" onclick="prevStep(7)">Назад</button> 
+<button class="config-nav-button" id="order-button">Оформить заказ</button>
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div>
+<script>
+ // Текущая конфигурация 
+const config = {
+type: null, 
+keyboard: null, 
+pedal: null, 
+sweller: null, 
+body: null, 
+options: [], 
+total: 0
+}; 
+// Названия опций для отображения 
+const optionNames = { 
+home: "Домашний орган", 
+concert: "Концертный орган", 
+church: "Церковный орган", 
+"pedal-only": "Органная педаль", 
+"2manuals": "2 мануала", 
+"3manuals": "3 мануала", 
+custom: "Индивидуальная", 
+standard: "Прямая педаль", 
+radial: "Радиальная педаль", 
+none: "Без педали", 
+double_purpose: "Педаль двойного назначения", 
+two_pedals: "Две педали швеллера", 
+custom_pedals: "Индивидуальная конфигурация", 
+oak: "Буковый корпус", 
+walnut: "Ореховый корпус", 
+modern: "Упрощенный дизайн", 
+midi: "MIDI-интерфейс", 
+light: "Подсветка", 
+stand: "Нерегулируемая скамейка"
+}; 
+// Инициализация конфигуратора 
+document.addEventListener('DOMContentLoaded', function() {
+// Для обычных шагов (одиночный выбор) 
+document.querySelectorAll('.config-step:not(.multiple-select) .option-card').forEach(card => {
+card.addEventListener('click', function() {
+this.parentNode.querySelectorAll('.option-card').forEach(c => {
+c.classList.remove('selected');
+}); 
+this.classList.add('selected');
+});
+});
+// Для шага с множественным выбором 
+document.querySelectorAll('.multiple-select .option-card').forEach(card => {
+card.addEventListener('click', function() {
+this.classList.toggle('selected');
+});
+}); 
+// Кнопка заказа 
+document.getElementById('order-button').addEventListener('click', function() {
+alert('Спасибо за заказ! Мы обязательно свяжемся с вами для уточнения деталей.');
+}); 
+// Обновляем прогресс-бар 
+updateProgress(1);
+}); 
+// Переход к следующему шагу 
+function nextStep(currentStep) {
+// Проверяем, что опция выбрана 
+const selected = document.querySelector(`#step${currentStep} .option-card.selected`); 
+// Если выбрана "Органная педаль" - сразу переходим к итогу 
+if (currentStep === 1 && selected && selected.dataset.value === "pedal-only") {
+config.type = selected.dataset.value; config.total = parseInt(selected.dataset.price); 
+// Пропускаем все шаги и переходим к итогу
+document.querySelectorAll('.config-step').forEach(step => {
+step.classList.remove('active');
+}); 
+document.getElementById('step7').classList.add('active'); updateSummary(); updateProgress(7); return;
+} if (!selected && currentStep !== 6) { 
+// На шаге 6 опции не обязательны 
+alert('Пожалуйста, выберите один из вариантов'); return; } 
+// Сохраняем выбранную опцию switch(currentStep) {
+case 1: config.type = selected.dataset.value; 
+config.total = parseInt(selected.dataset.price); 
+break; case 2: config.keyboard = selected.dataset.value; 
+config.total += parseInt(selected.dataset.price); 
+break; case 3: config.pedal = selected.dataset.value; 
+config.total += parseInt(selected.dataset.price); 
+break; case 4: config.sweller = selected.dataset.value; 
+config.total += parseInt(selected.dataset.price); 
+break; case 5: config.body = selected.dataset.value; 
+config.total += parseInt(selected.dataset.price); 
+break; case 6: 
+// Для дополнительных опций можно выбрать несколько 
+const selectedOptions = document.querySelectorAll(`#step${currentStep} .option-card.selected`); config.options = []; selectedOptions.forEach(opt => {
+config.options.push(opt.dataset.value); config.total += parseInt(opt.dataset.price);
+}); 
+// Обновляем итоговую страницу 
+updateSummary(); break; } 
+// Переходим к следующему шагу 
+document.getElementById(`step${            document.getElementById(`step${currentStep}`).classList.remove('active');
             document.getElementById(`step${currentStep + 1}`).classList.add('active');
             
             // Обновляем прогресс-бар
