@@ -1,4 +1,4 @@
-ver 1.24
+ver 1.25
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -79,6 +79,7 @@ ver 1.24
       border-radius: 20px;
       transition: all 0.3s;
       white-space: nowrap;
+      background-color: transparent;
     }
 
     .nav-button:hover {
@@ -139,6 +140,295 @@ ver 1.24
       opacity: 1;
     }
 
+    /* Основное содержимое */
+    .content {
+      margin-top: 100px;
+      min-height: calc(100vh - 100px);
+      padding: 30px 20px;
+      position: relative;
+    }
+
+    .tab {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .tab.active {
+      display: block;
+    }
+
+    /* Стили для контента вкладок */
+    .tab1-content {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 15px;
+    }
+
+    .tab1-text {
+      flex: 1;
+      line-height: 1.7;
+    }
+
+    .main-title {
+      color: rgb(86, 129, 135);
+      font-size: 32px;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 24px;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .tab1-image {
+      width: 300px;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .image-column {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .tab2-content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .work-block {
+      min-height: 400px;
+      background-color: rgba(50, 50, 50, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+      padding: 20px;
+    }
+
+    .work-image {
+      width: 45%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .work-description {
+      width: 50%;
+      color: white;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .tab3-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-family: 'Arial', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 10px;
+      word-wrap: break-word;
+    }
+
+    .location {
+      background-color: rgba(86, 129, 135, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 5px solid rgb(86, 129, 135);
+    }
+
+    .location-title {
+      color: rgb(86, 129, 135);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* Конфигуратор */
+    .configurator {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    .config-step {
+      padding: 30px;
+      display: none;
+    }
+    
+    .config-step.active {
+      display: block;
+    }
+    
+    .step-title {
+      color: rgb(86, 129, 135);
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .option-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+    
+    .option-card:hover {
+      border-color: rgb(86, 129, 135);
+      box-shadow: 0 5px 15px rgba(86, 129, 135, 0.1);
+    }
+    
+    .option-card.selected {
+      border: 2px solid rgb(86, 129, 135);
+      background-color: rgba(86, 129, 135, 0.05);
+    }
+
+    .multiple-select .option-card.selected {
+      background-color: rgba(86, 129, 135, 0.1);
+    }
+
+    .multiple-select .option-card.selected::after {
+      content: "✓";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: rgb(86, 129, 135);
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    .option-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .option-price {
+      color: rgb(86, 129, 135);
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    
+    .config-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    
+    .config-nav-button {
+      padding: 12px 25px;
+      background: rgb(86, 129, 135);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    
+    .config-nav-button:hover {
+      background: rgb(70, 110, 115);
+    }
+    
+    .config-nav-button.secondary {
+      background: #eee;
+      color: #333;
+    }
+    
+    .config-nav-button:disabled {
+      background: #ddd;
+      cursor: not-allowed;
+    }
+    
+    .progress-bar {
+      height: 5px;
+      background: #eee;
+      margin-bottom: 20px;
+    }
+    
+    .progress {
+      height: 100%;
+      background: rgb(86, 129, 135);
+      width: 0%;
+      transition: width 0.3s;
+    }
+    
+    .summary {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .total {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: rgb(86, 129, 135);
+    }
+    
+    .config-preview {
+      width: 100%;
+      height: 300px;
+      background: #f5f5f5;
+      border-radius: 10px;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .config-preview img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
     /* Мобильная версия */
     @media (max-width: 768px) {
       .header {
@@ -162,6 +452,7 @@ ver 1.24
       .header-bottom {
         flex-wrap: wrap;
         padding: 10px;
+        justify-content: space-between;
       }
       
       .nav-buttons.desktop {
@@ -175,12 +466,13 @@ ver 1.24
         order: 1;
         margin-top: 10px;
         padding: 5px 0;
-        background-color: rgba(0,0,0,0.1);
+        background-color: transparent;
       }
       
       .nav-button {
         padding: 5px 10px;
         transition: none !important;
+        background-color: transparent !important;
       }
       
       .nav-button.active {
@@ -192,385 +484,62 @@ ver 1.24
         margin-left: auto;
         gap: 10px;
       }
+
+      .content {
+        margin-top: 110px;
+        min-height: calc(100vh - 110px);
+        padding: 20px 15px;
+      }
+
+      .tab1-content {
+        flex-direction: column;
+        padding: 25px;
+      }
+      
+      .tab1-image {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        margin: 0 auto 20px;
+      }
+
+      .mobile-hide {
+        display: none;
+      }
+      
+      .work-block {
+        flex-direction: column;
+        padding: 15px;
+      }
+      
+      .work-image, .work-description {
+        width: 100%;
+      }
+      
+      .work-description {
+        margin-top: 15px;
+      }
+
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .config-step {
+        padding: 20px;
+      }
     }
-        /* Основное содержимое */
-        .content {
-            margin-top: 100px;
-            min-height: calc(100vh - 100px);
-            padding: 30px 20px;
-            position: relative;
-        }
 
-        .tab {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
+    /* Десктоп версия */
+    @media (min-width: 769px) {
+      .nav-buttons.mobile {
+        display: none;
+      }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .tab.active {
-            display: block;
-        }
-
-        /* Стили для контента вкладок */
-        .tab1-content {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 40px;
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 40px;
-            border-radius: 15px;
-        }
-
-        .tab1-text {
-            flex: 1;
-            line-height: 1.7;
-        }
-
-        .main-title {
-            color: rgb(86, 129, 135);
-            font-size: 32px;
-            text-transform: uppercase;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        .subtitle {
-            font-size: 24px;
-            font-style: italic;
-            color: #555;
-            margin-bottom: 30px;
-        }
-
-        .tab1-image {
-            width: 300px;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .image-column {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .tab2-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .work-block {
-            min-height: 400px;
-            background-color: rgba(50, 50, 50, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            padding: 20px;
-        }
-
-        .work-image {
-            width: 45%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        .work-description {
-            width: 50%;
-            color: white;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .tab3-content {
-            max-width: 800px;
-            margin: 0 auto;
-            font-family: 'Arial', sans-serif;
-            font-size: 16px;
-            line-height: 1.7;
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 30px;
-            border-radius: 10px;
-            word-wrap: break-word;
-        }
-
-        .location {
-            background-color: rgba(86, 129, 135, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 5px solid rgb(86, 129, 135);
-        }
-
-        .location-title {
-            color: rgb(86, 129, 135);
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        /* Конфигуратор */
-        .configurator {
-            max-width: 1000px;
-            margin: 30px auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .config-step {
-            padding: 30px;
-            display: none;
-        }
-        
-        .config-step.active {
-            display: block;
-        }
-        
-        .step-title {
-            color: rgb(86, 129, 135);
-            font-size: 28px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .option-card {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .option-card:hover {
-            border-color: rgb(86, 129, 135);
-            box-shadow: 0 5px 15px rgba(86, 129, 135, 0.1);
-        }
-        
-        .option-card.selected {
-            border: 2px solid rgb(86, 129, 135);
-            background-color: rgba(86, 129, 135, 0.05);
-        }
-
-        .multiple-select .option-card.selected {
-            background-color: rgba(86, 129, 135, 0.1);
-        }
-
-        .multiple-select .option-card.selected::after {
-            content: "✓";
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: rgb(86, 129, 135);
-            font-weight: bold;
-            font-size: 18px;
-        }
-        
-        .option-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .option-price {
-            color: rgb(86, 129, 135);
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        .config-nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-        
-        .config-nav-button {
-            padding: 12px 25px;
-            background: rgb(86, 129, 135);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        .config-nav-button:hover {
-            background: rgb(70, 110, 115);
-        }
-        
-        .config-nav-button.secondary {
-            background: #eee;
-            color: #333;
-        }
-        
-        .config-nav-button:disabled {
-            background: #ddd;
-            cursor: not-allowed;
-        }
-        
-        .progress-bar {
-            height: 5px;
-            background: #eee;
-            margin-bottom: 20px;
-        }
-        
-        .progress {
-            height: 100%;
-            background: rgb(86, 129, 135);
-            width: 0%;
-            transition: width 0.3s;
-        }
-        
-        .summary {
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
-        
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .total {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 20px;
-            color: rgb(86, 129, 135);
-        }
-        
-        .config-preview {
-            width: 100%;
-            height: 300px;
-            background: #f5f5f5;
-            border-radius: 10px;
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        
-        .config-preview img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        /* Мобильная версия */
-        @media (max-width: 768px) {
-            .header {
-                height: 130px;
-                grid-template-rows: 60px 40px 30px;
-            }
-            
-            .header-top {
-                padding: 0 20px;
-            }
-            
-            .logo-mini {
-                height: 40px;
-                margin-right: 15px;
-            }
-            
-            .header-title {
-                font-size: 16px;
-            }
-            
-            .header-bottom {
-                padding: 0 20px;
-                justify-content: center;
-            }
-            
-            .nav-buttons.desktop {
-                display: none;
-            }
-            
-            .mobile-config-button {
-                display: block;
-                width: 100%;
-                text-align: center;
-                padding: 5px 0;
-                background-color: rgba(0,0,0,0.1);
-            }
-            
-            .nav-buttons.mobile {
-                display: flex;
-                justify-content: center;
-                width: 100%;
-                padding: 5px 0;
-                background-color: rgba(0,0,0,0.1);
-            }
-            
-            .contacts {
-                gap: 10px;
-            }
-            
-            .content {
-                margin-top: 130px;
-                min-height: calc(100vh - 130px);
-                padding: 20px 15px;
-            }
-
-            .tab1-content {
-                flex-direction: column;
-                padding: 25px;
-            }
-            
-            .tab1-image {
-                width: 100%;
-                height: auto;
-                max-width: 300px;
-                margin: 0 auto 20px;
-            }
-            
-            .work-block {
-                flex-direction: column;
-                padding: 15px;
-            }
-            
-            .work-image, .work-description {
-                width: 100%;
-            }
-            
-            .work-description {
-                margin-top: 15px;
-            }
-
-            .options-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .config-step {
-                padding: 20px;
-            }
-        }
-    </style>
+      .contacts {
+        margin-left: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 <!-- Шапка сайта -->
@@ -578,6 +547,18 @@ ver 1.24
   <div class="header-top">
     <img alt="Orgus" class="logo-mini" src="logomini.png"/>
     <div class="header-title">Изготовление оргáнов. Обслуживание и ремонт вашего инструмента.</div>
+    <!-- Контакты для десктопа -->
+    <div class="contacts desktop-contacts">
+      <button class="contact-button" id="tg-button">
+        tg
+        <span class="tooltip">@SearAndRue +79022410241</span>
+      </button>
+      <button class="contact-button" id="email-button">
+        @
+        <span class="tooltip">umkrat@gmail.com</span>
+      </button>
+      <a class="contact-button vk" href="https://vk.com/kataleps" target="_blank">vk</a>
+    </div>
   </div>
   
   <div class="header-bottom">
@@ -589,13 +570,13 @@ ver 1.24
       <a class="nav-button" data-tab="tab4" href="#">Конфигуратор beta</a>
     </div>
     
-    <!-- Контакты -->
-    <div class="contacts">
-      <button class="contact-button" id="tg-button">
+    <!-- Контакты для мобильной версии -->
+    <div class="contacts mobile-contacts">
+      <button class="contact-button" id="tg-button-mobile">
         tg
         <span class="tooltip">@SearAndRue +79022410241</span>
       </button>
-      <button class="contact-button" id="email-button">
+      <button class="contact-button" id="email-button-mobile">
         @
         <span class="tooltip">umkrat@gmail.com</span>
       </button>
@@ -618,7 +599,6 @@ ver 1.24
 <div class="tab1-content">
 <div class="image-column">
 <img alt="MIDI-орган" class="tab1-image" src="logo.png"/>
-<img alt="MIDI-орган" class="tab1-image mobile-hide" src="2.png"/>
 </div>
 <div class="tab1-text">
 <h1 class="main-title">Ручное изготовление электронных органов под заказ</h1>
@@ -854,7 +834,7 @@ ver 1.24
 </div>
 </div>
 <!-- Шаг 6: Дополнительно (множественный выбор) -->
-<div class="config-step" id="step6">
+<div class="config-step multiple-select" id="step6">
 <h2 class="step-title">Дополнительные опции (можно выбрать несколько)</h2>
 <div class="options-grid multiple-select">
 <div class="option-card" data-price="30000" data-value="midi">
@@ -872,6 +852,15 @@ ver 1.24
 <p>Для удобной игры сидя под ваши параметры</p>
 <div class="option-price">+10 000 ₽</div>
 </div>
+<div class="option-card" data-price="25000" data-value="transport">
+<div class="option-title">Транспортировочный кейс</div>
+<p>Защитный чехол для перевозки инструмента</p>
+<div class="option-price">+25 000 ₽</div>
+</div>
+<div class="option-card" data-price="35000" data-value="audio">
+<div class="option-title">Аудиосистема</div>
+<p>Качественные колонки для полноценного звучания</p>
+<div class="option-price">+15000 ₽</div>
 </div>
 <div class="config-nav-buttons">
 <button class="config-nav-button secondary" onclick="prevStep(6)">Назад</button>
@@ -882,7 +871,7 @@ ver 1.24
 <div class="config-step" id="step7">
 <h2 class="step-title">Ваша конфигурация</h2>
 <div class="config-preview" id="final-preview">
-<img alt="Ваш орган" src="logo1.png"/>
+<img alt="Ваш орган" src="logo.png"/>
 </div>
 <div class="summary">
 <div class="summary-item">
@@ -915,284 +904,289 @@ ver 1.24
 </div>
 </div>
 <div class="config-nav-buttons">
- <button class="config-nav-button secondary" onclick="prevStep(7)">Назад</button> 
+<button class="config-nav-button secondary" onclick="prevStep(7)">Назад</button>
 <button class="config-nav-button" id="order-button">Оформить заказ</button>
-</div> 
-</div> 
-</div> 
-</div> 
-</div> 
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <script>
-        // Текущая конфигурация
-        const config = {
-            type: null,
-            keyboard: null,
-            pedal: null,
-            sweller: null,
-            body: null,
-            options: [],
-            total: 0
-        };
-        
-        // Названия опций для отображения
-        const optionNames = {
-            home: "Домашний орган",
-            concert: "Концертный орган",
-            church: "Церковный орган",
-            pedal: "Органная педаль",
-            "2manuals": "2 мануала",
-            "3manuals": "3 мануала",
-            custom: "Индивидуальная",
-            standard: "Стандартная педаль",
-            radial: "Радиальная педаль",
-            none: "Без педали",
-            double_purpose: "Педаль двойного назначения",
-            two_pedals: "Две педали швеллера",
-            custom_pedals: "Индивидуальная конфигурация",
-            oak: "Дубовый корпус",
-            walnut: "Ореховый корпус",
-            modern: "Современный дизайн",
-            midi: "MIDI-интерфейс",
-            light: "Подсветка",
-            transport: "Транспортировочный кейс",
-            stand: "Регулируемая подставка"
-        };
-        
-        // Инициализация конфигуратора
-        document.addEventListener('DOMContentLoaded', function() {
-            // Для обычных шагов (одиночный выбор)
-            document.querySelectorAll('.config-step:not(.multiple-select) .option-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.parentNode.querySelectorAll('.option-card').forEach(c => {
-                        c.classList.remove('selected');
-                    });
-                    this.classList.add('selected');
-                });
-            });
+// Текущая конфигурация
+const config = {
+    type: null,
+    keyboard: null,
+    pedal: null,
+    sweller: null,
+    body: null,
+    options: [],
+    total: 0
+};
 
-            // Для шага с множественным выбором
-            document.querySelectorAll('.multiple-select .option-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.classList.toggle('selected');
-                });
+// Названия опций для отображения
+const optionNames = {
+    home: "Домашний орган",
+    concert: "Концертный орган",
+    church: "Церковный орган",
+    pedal: "Органная педаль",
+    "2manuals": "2 мануала",
+    "3manuals": "3 мануала",
+    custom: "Индивидуальная",
+    standard: "Стандартная педаль",
+    radial: "Радиальная педаль",
+    none: "Без педали",
+    double_purpose: "Педаль двойного назначения",
+    two_pedals: "Две педали швеллера",
+    custom_pedals: "Индивидуальная конфигурация",
+    oak: "Дубовый корпус",
+    walnut: "Ореховый корпус",
+    modern: "Современный дизайн",
+    midi: "MIDI-интерфейс",
+    light: "Подсветка",
+    transport: "Транспортировочный кейс",
+    stand: "Регулируемая подставка",
+    audio: "Аудиосистема"
+};
+
+// Инициализация конфигуратора
+document.addEventListener('DOMContentLoaded', function() {
+    // Для обычных шагов (одиночный выбор)
+    document.querySelectorAll('.config-step:not(.multiple-select) .option-card').forEach(card => {
+        card.addEventListener('click', function() {
+            this.parentNode.querySelectorAll('.option-card').forEach(c => {
+                c.classList.remove('selected');
             });
-            
-            // Кнопка заказа
-            document.getElementById('order-button').addEventListener('click', function() {
-                alert('Спасибо за заказ! Мы обязательно свяжемся с вами для уточнения деталей!');
-            });
-            
-            // Обновляем прогресс-бар
-            updateProgress(1);
+            this.classList.add('selected');
         });
-        
-        // Переход к следующему шагу
-        function nextStep(currentStep) {
-            // Проверяем, что опция выбрана
-            const selected = document.querySelector(`#step${currentStep} .option-card.selected`);
-            if (!selected && currentStep !== 6) { // На шаге 6 опции не обязательны
-                alert('Пожалуйста, выберите один из вариантов');
-                return;
-            }
+    });
+
+    // Для шага с множественным выбором
+    document.querySelectorAll('.multiple-select .option-card').forEach(card => {
+        card.addEventListener('click', function() {
+            this.classList.toggle('selected');
+        });
+    });
+    
+    // Кнопка заказа
+    document.getElementById('order-button').addEventListener('click', function() {
+        alert('Спасибо за заказ! Мы обязательно свяжемся с вами для уточнения деталей!');
+    });
+    
+    // Обновляем прогресс-бар
+    updateProgress(1);
+});
+
+// Переход к следующему шагу
+function nextStep(currentStep) {
+    // Проверяем, что опция выбрана
+    const selected = document.querySelector(`#step${currentStep} .option-card.selected`);
+    if (!selected && currentStep !== 6) { // На шаге 6 опции не обязательны
+        alert('Пожалуйста, выберите один из вариантов');
+        return;
+    }
+    
+    // Сохраняем выбранную опцию
+    switch(currentStep) {
+        case 1:
+            config.type = selected.dataset.value;
+            config.total = parseInt(selected.dataset.price);
             
-            // Сохраняем выбранную опцию
-            switch(currentStep) {
-                case 1:
-                    config.type = selected.dataset.value;
-                    config.total = parseInt(selected.dataset.price);
-                    
-                    // Если выбрана "Органная педаль", сразу переходим к итогу
-                    if (config.type === 'pedal') {
-                        skipToFinalStep();
-                        return;
-                    }
-                    break;
-                case 2:
-                    config.keyboard = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 3:
-                    config.pedal = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 4:
-                    config.sweller = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 5:
-                    config.body = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 6:
-                    // Для дополнительных опций можно выбрать несколько
-                    const selectedOptions = document.querySelectorAll(`#step${currentStep} .option-card.selected`);
-                    config.options = [];
-                    selectedOptions.forEach(opt => {
-                        config.options.push(opt.dataset.value);
-                        config.total += parseInt(opt.dataset.price);
-                    });
-                    
-                    // Обновляем итоговую страницу
-                    updateSummary();
-                    break;
-            }
-            
-            // Переходим к следующему шагу
-            document.getElementById(`step${currentStep}`).classList.remove('active');
-            document.getElementById(`step${currentStep + 1}`).classList.add('active');
-            
-            // Обновляем прогресс-бар
-            updateProgress(currentStep + 1);
-        }
-        
-        // Пропуск шагов при выборе "Органная педаль"
-        function skipToFinalStep() {
-            // Скрываем все шаги
-            document.querySelectorAll('.config-step').forEach(step => {
-                step.classList.remove('active');
-            });
-            
-            // Показываем итоговый шаг
-            document.getElementById('step7').classList.add('active');
-            
-            // Устанавливаем прогресс на 100%
-            updateProgress(7);
-            
-            // Обновляем итоговую информацию
-            updateSummary();
-        }
-        
-        // Возврат к предыдущему шагу
-        function prevStep(currentStep) {
-            document.getElementById(`step${currentStep}`).classList.remove('active');
-            document.getElementById(`step${currentStep - 1}`).classList.add('active');
-            
-            // Обновляем прогресс-бар
-            updateProgress(currentStep - 1);
-        }
-        
-        // Обновление прогресс-бара
-        function updateProgress(step) {
-            const percent = (step - 1) * (100 / 6); // 7 шагов, поэтому делим на 6
-            document.getElementById('progress').style.width = `${percent}%`;
-        }
-        
-        // Обновление итоговой страницы
-        function updateSummary() {
-            // Если выбрана "Органная педаль", показываем только ее
+            // Если выбрана "Органная педаль", сразу переходим к итогу
             if (config.type === 'pedal') {
-                document.getElementById('summary-type').textContent = optionNames[config.type];
-                document.getElementById('summary-keyboard').textContent = 'Не требуется';
-                document.getElementById('summary-pedal').textContent = 'Включена';
-                document.getElementById('summary-sweller').textContent = 'Не требуется';
-                document.getElementById('summary-body').textContent = 'Стандартный';
-                document.getElementById('summary-options').textContent = 'Нет';
-                document.getElementById('total-price').textContent = '90 000 ₽';
+                skipToFinalStep();
                 return;
             }
-            
-            // Для других вариантов показываем полную информацию
-            document.getElementById('summary-type').textContent = optionNames[config.type] || '-';
-            document.getElementById('summary-keyboard').textContent = optionNames[config.keyboard] || '-';
-            document.getElementById('summary-pedal').textContent = optionNames[config.pedal] || '-';
-            document.getElementById('summary-sweller').textContent = optionNames[config.sweller] || '-';
-            document.getElementById('summary-body').textContent = optionNames[config.body] || '-';
-            
-            // Дополнительные опции
-            const optionsText = config.options.length > 0 
-                ? config.options.map(opt => optionNames[opt]).join(', ')
-                : 'Нет';
-            document.getElementById('summary-options').textContent = optionsText;
-            
-            // Итоговая цена
-            document.getElementById('total-price').textContent = `${config.total.toLocaleString()} ₽`;
-        }
-
-        // Переключение между вкладками
-        document.querySelectorAll('.nav-button[data-tab]').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Удаляем активный класс у всех кнопок и вкладок
-                document.querySelectorAll('.nav-button[data-tab]').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                document.querySelectorAll('.tab').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                
-                // Добавляем активный класс к текущей кнопке и вкладке
-                this.classList.add('active');
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-                
-                // Сбрасываем конфигуратор при повторном нажатии на вкладку
-                if (tabId === 'tab4') {
-                    resetConfigurator();
-                }
-            });
-        });
-
-        // Функция сброса конфигуратора
-        function resetConfigurator() {
-            // Сбрасываем конфигурацию
-            config.type = null;
-            config.keyboard = null;
-            config.pedal = null;
-            config.sweller = null;
-            config.body = null;
+            break;
+        case 2:
+            config.keyboard = selected.dataset.value;
+            config.total += parseInt(selected.dataset.price);
+            break;
+        case 3:
+            config.pedal = selected.dataset.value;
+            config.total += parseInt(selected.dataset.price);
+            break;
+        case 4:
+            config.sweller = selected.dataset.value;
+            config.total += parseInt(selected.dataset.price);
+            break;
+        case 5:
+            config.body = selected.dataset.value;
+            config.total += parseInt(selected.dataset.price);
+            break;
+        case 6:
+            // Для дополнительных опций можно выбрать несколько
+            const selectedOptions = document.querySelectorAll(`#step${currentStep} .option-card.selected`);
             config.options = [];
-            config.total = 0;
-            
-            // Сбрасываем выбор
-            document.querySelectorAll('.option-card.selected').forEach(card => {
-                card.classList.remove('selected');
+            selectedOptions.forEach(opt => {
+                config.options.push(opt.dataset.value);
+                config.total += parseInt(opt.dataset.price);
             });
             
-            // Возвращаем на первый шаг
-            document.querySelectorAll('.config-step').forEach(step => {
-                step.classList.remove('active');
-            });
-            document.getElementById('step1').classList.add('active');
-            
-            // Сбрасываем прогресс-бар
-            updateProgress(1);
-            
-            // Сбрасываем итоговую информацию
-            document.getElementById('summary-type').textContent = '-';
-            document.getElementById('summary-keyboard').textContent = '-';
-            document.getElementById('summary-pedal').textContent = '-';
-            document.getElementById('summary-sweller').textContent = '-';
-            document.getElementById('summary-body').textContent = '-';
-            document.getElementById('summary-options').textContent = '-';
-            document.getElementById('total-price').textContent = '0 ₽';
+            // Обновляем итоговую страницу
+            updateSummary();
+            break;
+    }
+    
+    // Переходим к следующему шагу
+    document.getElementById(`step${currentStep}`).classList.remove('active');
+    document.getElementById(`step${currentStep + 1}`).classList.add('active');
+    
+    // Обновляем прогресс-бар
+    updateProgress(currentStep + 1);
+}
+
+// Пропуск шагов при выборе "Органная педаль"
+function skipToFinalStep() {
+    // Скрываем все шаги
+    document.querySelectorAll('.config-step').forEach(step => {
+        step.classList.remove('active');
+    });
+    
+    // Показываем итоговый шаг
+    document.getElementById('step7').classList.add('active');
+    
+    // Устанавливаем прогресс на 100%
+    updateProgress(7);
+    
+    // Обновляем итоговую информацию
+    updateSummary();
+}
+
+// Возврат к предыдущему шагу
+function prevStep(currentStep) {
+    document.getElementById(`step${currentStep}`).classList.remove('active');
+    document.getElementById(`step${currentStep - 1}`).classList.add('active');
+    
+    // Обновляем прогресс-бар
+    updateProgress(currentStep - 1);
+}
+
+// Обновление прогресс-бара
+function updateProgress(step) {
+    const percent = (step - 1) * (100 / 6); // 7 шагов, поэтому делим на 6
+    document.getElementById('progress').style.width = `${percent}%`;
+}
+
+// Обновление итоговой страницы
+function updateSummary() {
+    // Если выбрана "Органная педаль", показываем только ее
+    if (config.type === 'pedal') {
+        document.getElementById('summary-type').textContent = optionNames[config.type];
+        document.getElementById('summary-keyboard').textContent = 'Не требуется';
+        document.getElementById('summary-pedal').textContent = 'Включена';
+        document.getElementById('summary-sweller').textContent = 'Не требуется';
+        document.getElementById('summary-body').textContent = 'Стандартный';
+        document.getElementById('summary-options').textContent = 'Нет';
+        document.getElementById('total-price').textContent = '90 000 ₽';
+        return;
+    }
+    
+    // Для других вариантов показываем полную информацию
+    document.getElementById('summary-type').textContent = optionNames[config.type] || '-';
+    document.getElementById('summary-keyboard').textContent = optionNames[config.keyboard] || '-';
+    document.getElementById('summary-pedal').textContent = optionNames[config.pedal] || '-';
+    document.getElementById('summary-sweller').textContent = optionNames[config.sweller] || '-';
+    document.getElementById('summary-body').textContent = optionNames[config.body] || '-';
+    
+    // Дополнительные опции
+    const optionsText = config.options.length > 0 
+        ? config.options.map(opt => optionNames[opt]).join(', ')
+        : 'Нет';
+    document.getElementById('summary-options').textContent = optionsText;
+    
+    // Итоговая цена
+    document.getElementById('total-price').textContent = `${config.total.toLocaleString()} ₽`;
+}
+
+// Переключение между вкладками
+document.querySelectorAll('.nav-button[data-tab]').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Удаляем активный класс у всех кнопок и вкладок
+        document.querySelectorAll('.nav-button[data-tab]').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        
+        // Добавляем активный класс к текущей кнопке и вкладке
+        this.classList.add('active');
+        const tabId = this.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
+        
+        // Сбрасываем конфигуратор при повторном нажатии на вкладку
+        if (tabId === 'tab4') {
+            resetConfigurator();
         }
+    });
+});
 
-        // Управление всплывающими подсказками
-        const tgButton = document.getElementById('tg-button');
-        const emailButton = document.getElementById('email-button');
+// Функция сброса конфигуратора
+function resetConfigurator() {
+    // Сбрасываем конфигурацию
+    config.type = null;
+    config.keyboard = null;
+    config.pedal = null;
+    config.sweller = null;
+    config.body = null;
+    config.options = [];
+    config.total = 0;
+    
+    // Сбрасываем выбор
+    document.querySelectorAll('.option-card.selected').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    // Возвращаем на первый шаг
+    document.querySelectorAll('.config-step').forEach(step => {
+        step.classList.remove('active');
+    });
+    document.getElementById('step1').classList.add('active');
+    
+    // Сбрасываем прогресс-бар
+    updateProgress(1);
+    
+    // Сбрасываем итоговую информацию
+    document.getElementById('summary-type').textContent = '-';
+    document.getElementById('summary-keyboard').textContent = '-';
+    document.getElementById('summary-pedal').textContent = '-';
+    document.getElementById('summary-sweller').textContent = '-';
+    document.getElementById('summary-body').textContent = '-';
+    document.getElementById('summary-options').textContent = '-';
+    document.getElementById('total-price').textContent = '0 ₽';
+}
 
-        [tgButton, emailButton].forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation();
-                this.classList.toggle('active');
-            });
+// Управление всплывающими подсказками
+const tgButton = document.getElementById('tg-button');
+const emailButton = document.getElementById('email-button');
+const tgButtonMobile = document.getElementById('tg-button-mobile');
+const emailButtonMobile = document.getElementById('email-button-mobile');
 
-            button.addEventListener('mouseenter', function() {
-                this.classList.add('active');
-            });
+[tgButton, emailButton, tgButtonMobile, emailButtonMobile].forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.toggle('active');
+    });
 
-            button.addEventListener('mouseleave', function() {
-                this.classList.remove('active');
-            });
-        });
+    button.addEventListener('mouseenter', function() {
+        this.classList.add('active');
+    });
 
-        // Закрытие подсказок при клике вне кнопок
-        document.addEventListener('click', function() {
-            tgButton.classList.remove('active');
-            emailButton.classList.remove('active');
-        });
-    </script>
+    button.addEventListener('mouseleave', function() {
+        this.classList.remove('active');
+    });
+});
+
+// Закрытие подсказок при клике вне кнопок
+document.addEventListener('click', function() {
+    tgButton.classList.remove('active');
+    emailButton.classList.remove('active');
+    tgButtonMobile.classList.remove('active');
+    emailButtonMobile.classList.remove('active');
+});
+</script>
 </body>
 </html>
