@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orgus</title>
-    <!-- Favicon -->
+    <title>Orgus - Органы</title>
     <link rel="icon" href="logomini.png" type="image/png">
     <link rel="shortcut icon" href="logomini.png" type="image/png">
     <style>
@@ -21,7 +20,7 @@
             background-attachment: scroll;
         }
 
-        /* Шапка сайта */
+        /* Шапка сайта - компьютерная версия */
         .header {
             position: fixed;
             top: 0;
@@ -45,13 +44,13 @@
         }
 
         .logo-mini {
-            height: 70px;
+            height: 50px;
             width: auto;
-            margin-right: 30px;
+            margin-right: 20px;
         }
 
         .header-title {
-            font-size: 22px;
+            font-size: 18px;
             color: white;
             font-weight: bold;
             flex-grow: 1;
@@ -68,13 +67,12 @@
         .nav-buttons {
             display: flex;
             gap: 15px;
-            flex-wrap: wrap;
         }
 
         .nav-button {
             color: white;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 14px;
             padding: 5px 15px;
             border-radius: 20px;
             transition: all 0.3s;
@@ -93,14 +91,12 @@
         .contacts {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-right: -20px;
+            gap: 15px;
         }
 
-        /* Изменен порядок кнопок в шапке */
         .contact-button {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             background-color: rgba(255,255,255,0.2);
             color: white;
             border: none;
@@ -109,14 +105,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 15px;
+            font-size: 14px;
             position: relative;
             transition: all 0.3s;
-            order: 1; /* Новое свойство для порядка */
-        }
-
-        .contact-button.vk {
-            order: 3; /* Кнопка VK будет последней */
         }
 
         .contact-button:hover {
@@ -146,6 +137,11 @@
             opacity: 1;
         }
 
+        /* Мобильная шапка */
+        .mobile-config-button {
+            display: none;
+        }
+
         /* Основное содержимое */
         .content {
             margin-top: 100px;
@@ -154,7 +150,6 @@
             position: relative;
         }
 
-        /* Стили для вкладок */
         .tab {
             display: none;
             animation: fadeIn 0.5s ease;
@@ -169,7 +164,7 @@
             display: block;
         }
 
-        /* Стили для первой вкладки */
+        /* Стили для контента вкладок */
         .tab1-content {
             display: flex;
             max-width: 1200px;
@@ -205,8 +200,6 @@
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
-            border: none;
-            outline: none;
         }
 
         .image-column {
@@ -215,7 +208,6 @@
             height: 100%;
         }
 
-        /* Стили для второй вкладки */
         .tab2-content {
             display: flex;
             flex-direction: column;
@@ -251,7 +243,6 @@
             line-height: 1.6;
         }
 
-        /* Стили для третьей вкладки */
         .tab3-content {
             max-width: 800px;
             margin: 0 auto;
@@ -278,13 +269,7 @@
             margin-bottom: 10px;
         }
 
-        /* Стили для четвертой вкладки (конфигуратор) */
-        .tab4-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        /* Стили конфигуратора */
+        /* Конфигуратор */
         .configurator {
             max-width: 1000px;
             margin: 30px auto;
@@ -323,6 +308,7 @@
             padding: 20px;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
         }
         
         .option-card:hover {
@@ -333,6 +319,20 @@
         .option-card.selected {
             border: 2px solid rgb(86, 129, 135);
             background-color: rgba(86, 129, 135, 0.05);
+        }
+
+        .multiple-select .option-card.selected {
+            background-color: rgba(86, 129, 135, 0.1);
+        }
+
+        .multiple-select .option-card.selected::after {
+            content: "✓";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: rgb(86, 129, 135);
+            font-weight: bold;
+            font-size: 18px;
         }
         
         .option-title {
@@ -347,13 +347,13 @@
             margin-top: 10px;
         }
         
-        .nav-buttons {
+        .config-nav-buttons {
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
         }
         
-        .nav-button {
+        .config-nav-button {
             padding: 12px 25px;
             background: rgb(86, 129, 135);
             color: white;
@@ -364,16 +364,16 @@
             transition: all 0.3s;
         }
         
-        .nav-button:hover {
+        .config-nav-button:hover {
             background: rgb(70, 110, 115);
         }
         
-        .nav-button.secondary {
+        .config-nav-button.secondary {
             background: #eee;
             color: #333;
         }
         
-        .nav-button:disabled {
+        .config-nav-button:disabled {
             background: #ddd;
             cursor: not-allowed;
         }
@@ -431,32 +431,61 @@
             object-fit: contain;
         }
 
-        /* Класс для скрытия на мобильных */
-        .mobile-hide {
-            display: block;
-        }
-
-        /* Адаптивность для мобильных */
+        /* Мобильная версия */
         @media (max-width: 768px) {
             .header {
-                height: 120px;
-                grid-template-rows: 60px 60px;
+                height: 130px;
+                grid-template-rows: 60px 40px 30px;
+            }
+            
+            .header-top {
+                padding: 0 20px;
             }
             
             .logo-mini {
-                height: 50px;
+                height: 40px;
+                margin-right: 15px;
             }
             
             .header-title {
-                font-size: 18px;
+                font-size: 16px;
+            }
+            
+            .header-bottom {
+                padding: 0 20px;
+                justify-content: center;
+            }
+            
+            .nav-buttons.desktop {
+                display: none;
+            }
+            
+            .mobile-config-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 5px 0;
+                background-color: rgba(0,0,0,0.1);
+            }
+            
+            .nav-buttons.mobile {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                padding: 5px 0;
+                background-color: rgba(0,0,0,0.1);
+            }
+            
+            .contacts {
+                gap: 10px;
             }
             
             .content {
-                margin-top: 120px;
-                min-height: calc(100vh - 120px);
+                margin-top: 130px;
+                min-height: calc(100vh - 130px);
                 padding: 20px 15px;
             }
-            
+
             .tab1-content {
                 flex-direction: column;
                 padding: 25px;
@@ -467,18 +496,6 @@
                 height: auto;
                 max-width: 300px;
                 margin: 0 auto 20px;
-            }
-            
-            .mobile-hide {
-                display: none;
-            }
-            
-            .main-title {
-                font-size: 24px;
-            }
-            
-            .subtitle {
-                font-size: 18px;
             }
             
             .work-block {
@@ -493,79 +510,13 @@
             .work-description {
                 margin-top: 15px;
             }
-            
-            .nav-buttons {
-                gap: 8px;
-                justify-content: center;
-            }
-            
-            .nav-button {
-                padding: 3px 10px;
-                font-size: 14px;
-            }
-            
-            .contacts {
-                gap: 12px;
-                margin-top: 10px;
-                justify-content: center;
-                width: 100%;
-            }
-            
-            .header-top,
-            .header-bottom {
-                padding-left: 20px;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            /* Адаптация третьей вкладки для мобильных */
-            .tab3-content {
-                font-size: 14px;
-                padding: 20px;
-                line-height: 1.5;
-            }
 
-            /* Адаптация конфигуратора для мобильных */
             .options-grid {
                 grid-template-columns: 1fr;
             }
 
             .config-step {
                 padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                height: 130px;
-                grid-template-rows: 70px 60px;
-            }
-            
-            .header-title {
-                font-size: 16px;
-            }
-            
-            .logo-mini {
-                height: 40px;
-                margin-right: 15px;
-            }
-            
-            .nav-button {
-                font-size: 12px;
-                padding: 2px 8px;
-            }
-            
-            .contact-button {
-                width: 28px;
-                height: 28px;
-                font-size: 13px;
-            }
-            
-            /* Дополнительная адаптация третьей вкладки для маленьких экранов */
-            .tab3-content {
-                font-size: 13px;
-                padding: 15px;
-                line-height: 1.4;
             }
         }
     </style>
@@ -577,13 +528,27 @@
             <img src="logomini.png" alt="Orgus" class="logo-mini">
             <div class="header-title">Изготовление оргáнов. Обслуживание и ремонт вашего инструмента.</div>
         </div>
+        
+        <!-- Для мобильной версии - кнопка конфигуратора отдельно -->
+        <div class="mobile-config-button">
+            <a href="#" class="nav-button" data-tab="tab4">Конфигуратор органа</a>
+        </div>
+        
         <div class="header-bottom">
-            <div class="nav-buttons">
+            <!-- Основные кнопки навигации -->
+            <div class="nav-buttons desktop">
                 <a href="#" class="nav-button active" data-tab="tab1">Главная</a>
                 <a href="#" class="nav-button" data-tab="tab2">Продукция</a>
                 <a href="#" class="nav-button" data-tab="tab3">Инфо</a>
-                <a href="#" class="nav-button" data-tab="tab4">Конфигуратор органа</a>
+                <a href="#" class="nav-button" data-tab="tab4">Конфигуратор</a>
             </div>
+            
+            <div class="nav-buttons mobile">
+                <a href="#" class="nav-button active" data-tab="tab1">Главная</a>
+                <a href="#" class="nav-button" data-tab="tab2">Продукция</a>
+                <a href="#" class="nav-button" data-tab="tab3">Инфо</a>
+            </div>
+            
             <div class="contacts">
                 <button class="contact-button" id="tg-button">
                     tg
@@ -600,7 +565,7 @@
 
     <!-- Основное содержимое -->
     <div class="content">
-        <!-- Вкладка 1 -->
+        <!-- Вкладка 1: Главная -->
         <div id="tab1" class="tab active">
             <div class="tab1-content">
                 <div class="image-column">
@@ -636,15 +601,11 @@
                     </ul>
                     
                     <p>Электронный орган, который звучит как настоящий.<br>И принадлежит только вам.</p>
-                    
-                    <p>Настоящий духовой орган — это сложно, дорого и громоздко. Но виртуальный инструмент на основе настоящих записей — это разумная альтернатива, не уступающая в качестве звучания и многократно превосходящая в удобстве.</p>
-                    
-                    <p>В современном мире мобильность, доступность и индивидуальность становятся не роскошью, а необходимостью. Мы создаём инструменты, которые вдохновляют.<br>Пусть ваш орган зазвучит — где бы вы ни находились!</p>
                 </div>
             </div>
         </div>
 
-        <!-- Вкладка 2 -->
+        <!-- Вкладка 2: Продукция -->
         <div id="tab2" class="tab">
             <div class="tab2-content">
                 <div class="work-block">
@@ -680,10 +641,9 @@
             </div>
         </div>
 
-        <!-- Вкладка 3 -->
+        <!-- Вкладка 3: Инфо -->
         <div id="tab3" class="tab">
             <div class="tab3-content">
-
                 <div class="location">
                     <div class="location-title">Наше производство</div>
                     <p>Все инструменты изготавливаются вручную в городе Нижний Новгород — одном из исторических центров органного искусства России. Город с богатыми музыкальными традициями, где переплетаются современные технологии и многовековой опыт создания музыкальных инструментов.</p>
@@ -724,7 +684,7 @@
                 
                 <h3>Заключение</h3>
                 <p>Создание MIDI-органа — это сочетание инженерного мастерства и музыкального творчества. Такой инструмент открывает доступ к бесконечной библиотеке звуков и возможностям настройки, оставаясь при этом более доступным, чем традиционные органы. Благодаря технологиям вроде Hauptwerk, каждый может прикоснуться к миру органной музыки, не выходя из дома.</p>
-                               <div class="location-title">По всем вопросам и ценам - пишите или звоните по подсказкам в верхнем праввом углу экрана.</div>
+                <div class="location-title">По всем вопросам и ценам - пишите или звоните по подсказкам в верхнем праввом углу экрана.</div>
             </div>
         </div>
 
@@ -743,22 +703,22 @@
                             <div class="option-card" data-value="home" data-price="150000">
                                 <div class="option-title">Домашний орган</div>
                                 <p>Компактный вариант для дома или студии</p>
-                                <div class="option-price">от 100 000 ₽</div>
+                                <div class="option-price">от 150 000 ₽</div>
                             </div>
                             <div class="option-card" data-value="concert" data-price="350000">
                                 <div class="option-title">Концертный орган</div>
                                 <p>Профессиональный инструмент для выступлений</p>
-                                <div class="option-price">от 150 000 ₽</div>
+                                <div class="option-price">от 350 000 ₽</div>
                             </div>
                             <div class="option-card" data-value="church" data-price="500000">
                                 <div class="option-title">Церковный орган</div>
                                 <p>Монументальный инструмент для храмов</p>
-                                <div class="option-price">от 250 000 ₽</div>
+                                <div class="option-price">от 500 000 ₽</div>
                             </div>
                         </div>
-                        <div class="nav-buttons">
-                            <button class="nav-button secondary" disabled>Назад</button>
-                            <button class="nav-button" onclick="nextStep(1)">Далее</button>
+                        <div class="config-nav-buttons">
+                            <button class="config-nav-button secondary" disabled>Назад</button>
+                            <button class="config-nav-button" onclick="nextStep(1)">Далее</button>
                         </div>
                     </div>
                     
@@ -777,14 +737,14 @@
                                 <div class="option-price">+90 000 ₽</div>
                             </div>
                             <div class="option-card" data-value="custom" data-price="120000">
-                                <div class="option-title">Индивидуально</div>
-                                <p>Своя конфигурация</p>
-                                <div class="option-price">+100 000 ₽</div>
+                                <div class="option-title">Индивидуальная</div>
+                                <p>Своя конфигурация (укажем позже)</p>
+                                <div class="option-price">+120 000 ₽</div>
                             </div>
                         </div>
-                        <div class="nav-buttons">
-                            <button class="nav-button secondary" onclick="prevStep(2)">Назад</button>
-                            <button class="nav-button" onclick="nextStep(2)">Далее</button>
+                        <div class="config-nav-buttons">
+                            <button class="config-nav-button secondary" onclick="prevStep(2)">Назад</button>
+                            <button class="config-nav-button" onclick="nextStep(2)">Далее</button>
                         </div>
                     </div>
                     
@@ -793,9 +753,9 @@
                         <h2 class="step-title">Педальная клавиатура</h2>
                         <div class="options-grid">
                             <div class="option-card" data-value="standard" data-price="40000">
-                                <div class="option-title">Параллельная</div>
+                                <div class="option-title">Стандартная</div>
                                 <p>30 педалей, параллельная конструкция</p>
-                                <div class="option-price">+50 000 ₽</div>
+                                <div class="option-price">+40 000 ₽</div>
                             </div>
                             <div class="option-card" data-value="radial" data-price="70000">
                                 <div class="option-title">Радиальная</div>
@@ -808,24 +768,24 @@
                                 <div class="option-price">+0 ₽</div>
                             </div>
                         </div>
-                        <div class="nav-buttons">
-                            <button class="nav-button secondary" onclick="prevStep(3)">Назад</button>
-                            <button class="nav-button" onclick="nextStep(3)">Далее</button>
+                        <div class="config-nav-buttons">
+                            <button class="config-nav-button secondary" onclick="prevStep(3)">Назад</button>
+                            <button class="config-nav-button" onclick="nextStep(3)">Далее</button>
                         </div>
                     </div>
                     
-                    <!-- Новый шаг 4: Педали швеллера и пистоны -->
+                    <!-- Шаг 4: Педали швеллера -->
                     <div class="config-step" id="step4">
                         <h2 class="step-title">Педали швеллера и пистоны</h2>
                         <div class="options-grid">
                             <div class="option-card" data-value="double_purpose" data-price="0">
-                                <div class="option-title">Педаль швеллера двойного назначения (швеллер + вальц) и педальная кнопка комбинации "вперед"</div>
-                                <p>Универсальное решение для компактных органов</p>
+                                <div class="option-title">Педаль двойного назначения</div>
+                                <p>Швеллер + вальц и кнопка "вперед"</p>
                                 <div class="option-price">+0 ₽</div>
                             </div>
                             <div class="option-card" data-value="two_pedals" data-price="10000">
-                                <div class="option-title">Две педали швеллера и педальная кнопка комбинации "вперед"</div>
-                                <p>Классическое решение для профессиональных органов</p>
+                                <div class="option-title">Две педали швеллера</div>
+                                <p>И педальная кнопка "вперед"</p>
                                 <div class="option-price">+10 000 ₽</div>
                             </div>
                             <div class="option-card" data-value="custom_pedals" data-price="15000">
@@ -834,64 +794,61 @@
                                 <div class="option-price">+15 000 ₽</div>
                             </div>
                         </div>
-                        <div class="nav-buttons">
-                            <button class="nav-button secondary" onclick="prevStep(4)">Назад</button>
-                            <button class="nav-button" onclick="nextStep(4)">Далее</button>
+                        <div class="config-nav-buttons">
+                            <button class="config-nav-button secondary" onclick="prevStep(4)">Назад</button>
+                            <button class="config-nav-button" onclick="nextStep(4)">Далее</button>
                         </div>
                     </div>
                     
                     <!-- Шаг 5: Корпус -->
                     <div class="config-step" id="step5">
                         <h2 class="step-title">Материал корпуса</h2>
-                        <div class="config-preview" id="preview">
-                            <!-- Здесь будет предпросмотр -->
-                        </div>
                         <div class="options-grid">
-                            <div class="option-card" data-value="oak" data-price="80000" data-image="oak.jpg">
-                                <div class="option-title">Бук</div>
+                            <div class="option-card" data-value="oak" data-price="80000">
+                                <div class="option-title">Дуб</div>
                                 <p>Классический благородный материал</p>
-                                <div class="option-price">+20 000 ₽</div>
+                                <div class="option-price">+80 000 ₽</div>
                             </div>
-                            <div class="option-card" data-value="walnut" data-price="70000" data-image="walnut.jpg">
+                            <div class="option-card" data-value="walnut" data-price="70000">
                                 <div class="option-title">Орех</div>
                                 <p>Теплый оттенок и красивая текстура</p>
-                                <div class="option-price">+30 000 ₽</div>
+                                <div class="option-price">+70 000 ₽</div>
                             </div>
-                                                        <div class="option-card" data-value="modern" data-price="50000" data-image="modern.jpg">
+                            <div class="option-card" data-value="modern" data-price="50000">
                                 <div class="option-title">Современный</div>
-                                <p>В минималистичном дизайне</p>
-                                <div class="option-price">+10 000 ₽</div>
+                                <p>Металл и стекло в минималистичном дизайне</p>
+                                <div class="option-price">+50 000 ₽</div>
                             </div>
                         </div>
-                        <div class="nav-buttons">
-                            <button class="nav-button secondary" onclick="prevStep(5)">Назад</button>
-                            <button class="nav-button" onclick="nextStep(5)">Далее</button>
+                        <div class="config-nav-buttons">
+                            <button class="config-nav-button secondary" onclick="prevStep(5)">Назад</button>
+                            <button class="config-nav-button" onclick="nextStep(5)">Далее</button>
                         </div>
                     </div>
                     
-                    <!-- Шаг 6: Дополнительно -->
+                    <!-- Шаг 6: Дополнительно (множественный выбор) -->
                     <div class="config-step" id="step6">
-                        <h2 class="step-title">Дополнительные опции</h2>
-                        <div class="options-grid">
+                        <h2 class="step-title">Дополнительные опции (можно выбрать несколько)</h2>
+                        <div class="options-grid multiple-select">
                             <div class="option-card" data-value="midi" data-price="30000">
                                 <div class="option-title">MIDI-интерфейс</div>
                                 <p>Подключение к компьютеру и синтезаторам</p>
-                                <div class="option-price">+0 ₽</div>
+                                <div class="option-price">+30 000 ₽</div>
                             </div>
                             <div class="option-card" data-value="light" data-price="15000">
                                 <div class="option-title">Подсветка</div>
                                 <p>Декоративная подсветка корпуса</p>
-                                <div class="option-price">+5 000 ₽</div>
+                                <div class="option-price">+15 000 ₽</div>
                             </div>
-                            <div class="option-card" data-value="transport" data-price="25000">
-                                <div class="option-title">Транспортировочный кейс</div>
-                                <p>Защитный чехол для перевозки</p>
-                                <div class="option-price">+7 000 ₽</div>
+                                                       <div class="option-card" data-value="stand" data-price="20000">
+                                <div class="option-title">Регулируемая подставка</div>
+                                <p>Для удобной игры стоя или сидя</p>
+                                <div class="option-price">+20 000 ₽</div>
                             </div>
                         </div>
-                        <div class="nav-buttons">
-                            <button class="nav-button secondary" onclick="prevStep(6)">Назад</button>
-                            <button class="nav-button" onclick="nextStep(6)">Далее</button>
+                        <div class="config-nav-buttons">
+                            <button class="config-nav-button secondary" onclick="prevStep(6)">Назад</button>
+                            <button class="config-nav-button" onclick="nextStep(6)">Далее</button>
                         </div>
                     </div>
                     
@@ -899,7 +856,7 @@
                     <div class="config-step" id="step7">
                         <h2 class="step-title">Ваша конфигурация</h2>
                         <div class="config-preview" id="final-preview">
-                            <!-- Здесь будет финальный предпросмотр -->
+                            <img src="logo.png" alt="Ваш орган">
                         </div>
                         <div class="summary">
                             <div class="summary-item">
@@ -931,9 +888,9 @@
                                 <span id="total-price">0 ₽</span>
                             </div>
                         </div>
-                        <div class="nav-buttons">
-                            <button class="nav-button secondary" onclick="prevStep(7)">Назад</button>
-                            <button class="nav-button" id="order-button">Оформить заказ</button>
+                        <div class="config-nav-buttons">
+                            <button class="config-nav-button secondary" onclick="prevStep(7)">Назад</button>
+                            <button class="config-nav-button" id="order-button">Оформить заказ</button>
                         </div>
                     </div>
                 </div>
@@ -955,56 +912,49 @@
         
         // Названия опций для отображения
         const optionNames = {
-            // Типы органов
             home: "Домашний орган",
             concert: "Концертный орган",
             church: "Церковный орган",
-            
-            // Клавиатуры
             "2manuals": "2 мануала",
             "3manuals": "3 мануала",
             custom: "Индивидуальная",
-            
-            // Педали
             standard: "Стандартная педаль",
             radial: "Радиальная педаль",
             none: "Без педали",
-            
-            // Педали швеллера
             double_purpose: "Педаль двойного назначения",
             two_pedals: "Две педали швеллера",
             custom_pedals: "Индивидуальная конфигурация",
-            
-            // Корпуса
-            oak: "Буковый корпус",
+            oak: "Дубовый корпус",
             walnut: "Ореховый корпус",
             modern: "Современный дизайн",
-            
-            // Опции
             midi: "MIDI-интерфейс",
             light: "Подсветка",
-            transport: "Транспортировочный кейс"
+            transport: "Транспортировочный кейс",
+            stand: "Регулируемая подставка"
         };
         
         // Инициализация конфигуратора
         document.addEventListener('DOMContentLoaded', function() {
-            // Выбор опций
-            document.querySelectorAll('.option-card').forEach(card => {
+            // Для обычных шагов (одиночный выбор)
+            document.querySelectorAll('.config-step:not(.multiple-select) .option-card').forEach(card => {
                 card.addEventListener('click', function() {
-                    // Снимаем выделение со всех карточек в текущем шаге
                     this.parentNode.querySelectorAll('.option-card').forEach(c => {
                         c.classList.remove('selected');
                     });
-                    
-                    // Выделяем текущую
                     this.classList.add('selected');
+                });
+            });
+
+            // Для шага с множественным выбором
+            document.querySelectorAll('.multiple-select .option-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('selected');
                 });
             });
             
             // Кнопка заказа
             document.getElementById('order-button').addEventListener('click', function() {
                 alert('Спасибо за заказ! Мы свяжемся с вами для уточнения деталей.');
-                // Здесь можно добавить отправку данных на сервер
             });
             
             // Обновляем прогресс-бар
@@ -1015,7 +965,7 @@
         function nextStep(currentStep) {
             // Проверяем, что опция выбрана
             const selected = document.querySelector(`#step${currentStep} .option-card.selected`);
-            if (!selected && currentStep !== 6) { // На шаге 6 (доп. опции) выбор не обязателен
+            if (!selected && currentStep !== 6) { // На шаге 6 опции не обязательны
                 alert('Пожалуйста, выберите один из вариантов');
                 return;
             }
@@ -1041,10 +991,6 @@
                 case 5:
                     config.body = selected.dataset.value;
                     config.total += parseInt(selected.dataset.price);
-                    
-                    // Обновляем превью
-                    const preview = document.getElementById('preview');
-                    preview.innerHTML = `<img src="${selected.dataset.image}" alt="${optionNames[config.body]}">`;
                     break;
                 case 6:
                     // Для дополнительных опций можно выбрать несколько
@@ -1079,7 +1025,7 @@
         
         // Обновление прогресс-бара
         function updateProgress(step) {
-            const percent = (step - 1) * (100 / 6); // Теперь 7 шагов, поэтому делим на 6
+            const percent = (step - 1) * (100 / 6); // 7 шагов, поэтому делим на 6
             document.getElementById('progress').style.width = `${percent}%`;
         }
         
@@ -1099,78 +1045,67 @@
             
             // Итоговая цена
             document.getElementById('total-price').textContent = `${config.total.toLocaleString()} ₽`;
+        }
+
+        // Переключение между вкладками
+        document.querySelectorAll('.nav-button[data-tab]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Удаляем активный класс у всех кнопок и вкладок
+                document.querySelectorAll('.nav-button[data-tab]').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Добавляем активный класс к текущей кнопке и вкладке
+                this.classList.add('active');
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+                
+                // Сбрасываем конфигуратор при повторном нажатии на вкладку
+                if (tabId === 'tab4') {
+                    resetConfigurator();
+                }
+            });
+        });
+
+        // Функция сброса конфигуратора
+        function resetConfigurator() {
+            // Сбрасываем конфигурацию
+            config.type = null;
+            config.keyboard = null;
+            config.pedal = null;
+            config.sweller = null;
+            config.body = null;
+            config.options = [];
+            config.total = 0;
             
-            // Обновляем финальное превью (используем то же изображение, что и для корпуса)
-            const selectedBody = document.querySelector('#step5 .option-card.selected');
-            if (selectedBody) {
-                document.getElementById('final-preview').innerHTML = 
-                    `<img src="${selectedBody.dataset.image}" alt="Ваш орган">`;
-            }
+            // Сбрасываем выбор
+            document.querySelectorAll('.option-card.selected').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Возвращаем на первый шаг
+            document.querySelectorAll('.config-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.getElementById('step1').classList.add('active');
+            
+            // Сбрасываем прогресс-бар
+            updateProgress(1);
+            
+            // Сбрасываем итоговую информацию
+            document.getElementById('summary-type').textContent = '-';
+            document.getElementById('summary-keyboard').textContent = '-';
+            document.getElementById('summary-pedal').textContent = '-';
+            document.getElementById('summary-sweller').textContent = '-';
+            document.getElementById('summary-body').textContent = '-';
+            document.getElementById('summary-options').textContent = '-';
+            document.getElementById('total-price').textContent = '0 ₽';
         }
-
-       // Переключение между вкладками
-document.querySelectorAll('.nav-button[data-tab]').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Удаляем активный класс у всех кнопок и вкладок
-        document.querySelectorAll('.nav-button[data-tab]').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.classList.remove('active');
-        });
-        
-        // Добавляем активный класс к текущей кнопке и вкладке
-        this.classList.add('active');
-        const tabId = this.getAttribute('data-tab');
-        document.getElementById(tabId).classList.add('active');
-        
-        // Сбрасываем конфигуратор при повторном нажатии на вкладку
-        if (tabId === 'tab4') {
-            resetConfigurator();
-        }
-    });
-});
-
-// Функция сброса конфигуратора
-function resetConfigurator() {
-    // Сбрасываем конфигурацию
-    config.type = null;
-    config.keyboard = null;
-    config.pedal = null;
-    config.sweller = null;
-    config.body = null;
-    config.options = [];
-    config.total = 0;
-    
-    // Сбрасываем выбор
-    document.querySelectorAll('.option-card.selected').forEach(card => {
-        card.classList.remove('selected');
-    });
-    
-    // Сбрасываем превью
-    document.getElementById('preview').innerHTML = '';
-    document.getElementById('final-preview').innerHTML = '';
-    
-    // Возвращаем на первый шаг
-    document.querySelectorAll('.config-step').forEach(step => {
-        step.classList.remove('active');
-    });
-    document.getElementById('step1').classList.add('active');
-    
-    // Сбрасываем прогресс-бар
-    updateProgress(1);
-    
-    // Сбрасываем итоговую информацию
-    document.getElementById('summary-type').textContent = '-';
-    document.getElementById('summary-keyboard').textContent = '-';
-    document.getElementById('summary-pedal').textContent = '-';
-    document.getElementById('summary-sweller').textContent = '-';
-    document.getElementById('summary-body').textContent = '-';
-    document.getElementById('summary-options').textContent = '-';
-    document.getElementById('total-price').textContent = '0 ₽';
-}
 
         // Управление всплывающими подсказками
         const tgButton = document.getElementById('tg-button');
