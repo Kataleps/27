@@ -1,5 +1,7 @@
 ver 1.23
 
+ver 1.23
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -454,19 +456,13 @@ ver 1.23
             }
             
             .header-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    background-color: rgba(0,0,0,0.15);
-}
-
-.nav-buttons.desktop {
-    display: flex;
-    gap: 15px;
-    margin-right: auto; /* Добавьте это свойство */
-}
-
+                padding: 0 20px;
+                justify-content: center;
+            }
+            
+            .nav-buttons.desktop {
+                display: none;
+            }
             
             .mobile-config-button {
                 display: block;
@@ -485,11 +481,8 @@ ver 1.23
             }
             
             .contacts {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-left: auto; /* Добавьте это свойство */
-}
+                gap: 10px;
+            }
             
             .content {
                 margin-top: 130px;
@@ -541,33 +534,31 @@ ver 1.23
 </div>
 <!-- Для мобильной версии - кнопка конфигуратора отдельно -->
 <div class="mobile-config-button">
-    <a class="nav-button" data-tab="tab4" href="#">Конфигуратор органа beta</a>
-</div>
-<div class="nav-buttons mobile">
-    <a class="nav-button active" data-tab="tab1" href="#">Главная</a>
-    <a class="nav-button" data-tab="tab2" href="#">Продукция</a>
-    <a class="nav-button" data-tab="tab3" href="#">Инфо</a>
+<a class="nav-button" data-tab="tab4" href="#">Конфигуратор органа</a>
 </div>
 <div class="header-bottom">
-    <!-- Основные кнопки навигации -->
-    <div class="nav-buttons desktop">
-        <a class="nav-button active" data-tab="tab1" href="#">Главная</a>
-        <a class="nav-button" data-tab="tab2" href="#">Продукция</a>
-        <a class="nav-button" data-tab="tab3" href="#">Инфо</a>
-        <a class="nav-button" data-tab="tab4" href="#">Конфигуратор органа beta</a>
-    </div>
-    
-    <div class="contacts">
-        <button class="contact-button" id="tg-button">
-            tg
-            <span class="tooltip">@SearAndRue +79022410241</span>
-        </button>
-        <button class="contact-button" id="email-button">
-            @
-            <span class="tooltip">umkrat@gmail.com</span>
-        </button>
-        <a class="contact-button vk" href="https://vk.com/kataleps" target="_blank">vk</a>
-    </div>
+<!-- Основные кнопки навигации -->
+<div class="nav-buttons desktop">
+<a class="nav-button active" data-tab="tab1" href="#">Главная</a>
+<a class="nav-button" data-tab="tab2" href="#">Продукция</a>
+<a class="nav-button" data-tab="tab3" href="#">Инфо</a>
+<a class="nav-button" data-tab="tab4" href="#">Конфигуратор</a>
+</div>
+<div class="nav-buttons mobile">
+<a class="nav-button active" data-tab="tab1" href="#">Главная</a>
+<a class="nav-button" data-tab="tab2" href="#">Продукция</a>
+<a class="nav-button" data-tab="tab3" href="#">Инфо</a>
+</div>
+<div class="contacts">
+<button class="contact-button" id="tg-button">
+                    tg
+                    <span class="tooltip">@SearAndRue +79022410241</span>
+</button>
+<button class="contact-button" id="email-button">
+                    @
+                    <span class="tooltip">umkrat@gmail.com</span>
+</button>
+<a class="contact-button vk" href="https://vk.com/kataleps" target="_blank">vk</a>
 </div>
 </div>
 </div>
