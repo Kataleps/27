@@ -855,259 +855,268 @@ ver 1.24
 </div>
 <!-- Шаг 6: Дополнительно (множественный выбор) -->
 <div class="config-step" id="step6">
-<h2 class="step-title">Дополнительные опции (можно выбрать несколько)</h2>
-<div class="options-grid multiple-select">
-<div class="option-card" data-price="30000" data-value="midi">
-<div class="option-title">MIDI-интерфейс</div>
-<p>Подключение к компьютеру и синтезаторам</p>
-<div class="option-price">+0 ₽</div>
+    <h2 class="step-title">Дополнительные опции (можно выбрать несколько)</h2>
+    <div class="options-grid multiple-select">
+        <div class="option-card" data-price="30000" data-value="midi">
+            <div class="option-title">MIDI-интерфейс</div>
+            <p>Подключение к компьютеру и синтезаторам</p>
+            <div class="option-price">+30 000 ₽</div>
+        </div>
+        <div class="option-card" data-price="15000" data-value="light">
+            <div class="option-title">Подсветка</div>
+            <p>Декоративная подсветка корпуса</p>
+            <div class="option-price">+15 000 ₽</div>
+        </div>
+        <div class="option-card" data-price="20000" data-value="stand">
+            <div class="option-title">Нерегулируемая скамейка</div>
+            <p>Для удобной игры сидя под ваши параметры</p>
+            <div class="option-price">+20 000 ₽</div>
+        </div>
+        <div class="option-card" data-price="25000" data-value="transport">
+            <div class="option-title">Транспортировочный кейс</div>
+            <p>Защитный чехол для перевозки инструмента</p>
+            <div class="option-price">+25 000 ₽</div>
+        </div>
+    </div>
+    <div class="config-nav-buttons">
+        <button class="config-nav-button secondary" onclick="prevStep(6)">Назад</button>
+        <button class="config-nav-button" onclick="nextStep(6)">Далее</button>
+    </div>
 </div>
-<div class="option-card" data-price="15000" data-value="light">
-<div class="option-title">Подсветка</div>
-<p>Декоративная подсветка корпуса</p>
-<div class="option-price">+5 000 ₽</div>
-</div>
-<div class="option-card" data-price="20000" data-value="stand">
-<div class="option-title">Нерегулируемая скамейка</div>
-<p>Для удобной игры сидя под ваши параметры</p>
-<div class="option-price">+10 000 ₽</div>
-</div>
-</div>
-<div class="config-nav-buttons">
-<button class="config-nav-button secondary" onclick="prevStep(6)">Назад</button>
-<button class="config-nav-button" onclick="nextStep(6)">Далее</button>
-</div>
-</div>
+
 <!-- Шаг 7: Итог -->
 <div class="config-step" id="step7">
-<h2 class="step-title">Ваша конфигурация</h2>
-<div class="config-preview" id="final-preview">
-<img alt="Ваш орган" src="logo.png"/>
+    <h2 class="step-title">Ваша конфигурация</h2>
+    <div class="config-preview" id="final-preview">
+        <img alt="Ваш орган" src="logo.png"/>
+    </div>
+    <div class="summary">
+        <div class="summary-item">
+            <span>Тип органа:</span>
+            <span id="summary-type">-</span>
+        </div>
+        <div class="summary-item">
+            <span>Клавиатура:</span>
+            <span id="summary-keyboard">-</span>
+        </div>
+        <div class="summary-item">
+            <span>Педаль:</span>
+            <span id="summary-pedal">-</span>
+        </div>
+        <div class="summary-item">
+            <span>Педали швеллера:</span>
+            <span id="summary-sweller">-</span>
+        </div>
+        <div class="summary-item">
+            <span>Корпус:</span>
+            <span id="summary-body">-</span>
+        </div>
+        <div class="summary-item">
+            <span>Дополнительно:</span>
+            <span id="summary-options">-</span>
+        </div>
+        <div class="total">
+            <span>Итого:</span>
+            <span id="total-price">0 ₽</span>
+        </div>
+    </div>
+    <div class="config-nav-buttons">
+        <button class="config-nav-button secondary" onclick="prevStep(7)">Назад</button>
+        <button class="config-nav-button" id="order-button">Оформить заказ</button>
+    </div>
 </div>
-<div class="summary">
-<div class="summary-item">
-<span>Тип органа:</span>
-<span id="summary-type">-</span>
-</div>
-<div class="summary-item">
-<span>Клавиатура:</span>
-<span id="summary-keyboard">-</span>
-</div>
-<div class="summary-item">
-<span>Педаль:</span>
-<span id="summary-pedal">-</span>
-</div>
-<div class="summary-item">
-<span>Педали швеллера:</span>
-<span id="summary-sweller">-</span>
-</div>
-<div class="summary-item">
-<span>Корпус:</span>
-<span id="summary-body">-</span>
-</div>
-<div class="summary-item">
-<span>Дополнительно:</span>
-<span id="summary-options">-</span>
-</div>
-<div class="total">
-<span>Итого:</span>
-<span id="total-price">0 ₽</span>
-</div>
-</div>
-<div class="config-nav-buttons">
- <button class="config-nav-button secondary" onclick="prevStep(7)">Назад</button> 
-<button class="config-nav-button" id="order-button">Оформить заказ</button>
-</div> 
-</div> 
-</div> 
-</div> 
-</div> 
-</div>
-<script>
-        // Текущая конфигурация
-        const config = {
-            type: null,
-            keyboard: null,
-            pedal: null,
-            sweller: null,
-            body: null,
-            options: [],
-            total: 0
-        };
-        
-        // Названия опций для отображения
-        const optionNames = {
-            home: "Домашний орган",
-            concert: "Концертный орган",
-            church: "Церковный орган",
-            pedal: "Органная педаль",
-            "2manuals": "2 мануала",
-            "3manuals": "3 мануала",
-            custom: "Индивидуальная",
-            standard: "Стандартная педаль",
-            radial: "Радиальная педаль",
-            none: "Без педали",
-            double_purpose: "Педаль двойного назначения",
-            two_pedals: "Две педали швеллера",
-            custom_pedals: "Индивидуальная конфигурация",
-            oak: "Дубовый корпус",
-            walnut: "Ореховый корпус",
-            modern: "Современный дизайн",
-            midi: "MIDI-интерфейс",
-            light: "Подсветка",
-            transport: "Транспортировочный кейс",
-            stand: "Регулируемая подставка"
-        };
-        
-        // Инициализация конфигуратора
-        document.addEventListener('DOMContentLoaded', function() {
-            // Для обычных шагов (одиночный выбор)
-            document.querySelectorAll('.config-step:not(.multiple-select) .option-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.parentNode.querySelectorAll('.option-card').forEach(c => {
-                        c.classList.remove('selected');
-                    });
-                    this.classList.add('selected');
-                });
-            });
 
-            // Для шага с множественным выбором
-            document.querySelectorAll('.multiple-select .option-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    this.classList.toggle('selected');
+<script>
+    // Текущая конфигурация
+    const config = {
+        type: null,
+        keyboard: null,
+        pedal: null,
+        sweller: null,
+        body: null,
+        options: [],
+        total: 0
+    };
+    
+    // Названия опций для отображения
+    const optionNames = {
+        home: "Домашний орган",
+        concert: "Концертный орган",
+        church: "Церковный орган",
+        pedal: "Органная педаль",
+        "2manuals": "2 мануала",
+        "3manuals": "3 мануала",
+        custom: "Индивидуальная",
+        standard: "Прямая педаль",
+        radial: "Радиальная педаль",
+        none: "Без педали",
+        double_purpose: "Педаль двойного назначения",
+        two_pedals: "Две педали швеллера",
+        custom_pedals: "Индивидуальная конфигурация",
+        oak: "Бук",
+        walnut: "Орех",
+        modern: "Упрощенный",
+        midi: "MIDI-интерфейс",
+        light: "Подсветка",
+        transport: "Транспортировочный кейс",
+        stand: "Нерегулируемая скамейка"
+    };
+    
+    // Инициализация конфигуратора
+    document.addEventListener('DOMContentLoaded', function() {
+        // Для обычных шагов (одиночный выбор)
+        document.querySelectorAll('.config-step:not(.multiple-select) .option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Снимаем выделение со всех карточек в этом шаге
+                this.parentNode.querySelectorAll('.option-card').forEach(c => {
+                    c.classList.remove('selected');
                 });
+                // Добавляем выделение текущей карточке
+                this.classList.add('selected');
             });
-            
-            // Кнопка заказа
-            document.getElementById('order-button').addEventListener('click', function() {
-                alert('Спасибо за заказ! Мы обязательно свяжемся с вами для уточнения деталей!');
+        });
+
+        // Для шага с множественным выбором
+        document.querySelectorAll('.multiple-select .option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Переключаем выделение текущей карточки
+                this.classList.toggle('selected');
             });
-            
-            // Обновляем прогресс-бар
-            updateProgress(1);
         });
         
-        // Переход к следующему шагу
-        function nextStep(currentStep) {
-            // Проверяем, что опция выбрана
-            const selected = document.querySelector(`#step${currentStep} .option-card.selected`);
-            if (!selected && currentStep !== 6) { // На шаге 6 опции не обязательны
-                alert('Пожалуйста, выберите один из вариантов');
-                return;
-            }
-            
-            // Сохраняем выбранную опцию
-            switch(currentStep) {
-                case 1:
-                    config.type = selected.dataset.value;
-                    config.total = parseInt(selected.dataset.price);
-                    
-                    // Если выбрана "Органная педаль", сразу переходим к итогу
-                    if (config.type === 'pedal') {
-                        skipToFinalStep();
-                        return;
-                    }
-                    break;
-                case 2:
-                    config.keyboard = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 3:
-                    config.pedal = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 4:
-                    config.sweller = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 5:
-                    config.body = selected.dataset.value;
-                    config.total += parseInt(selected.dataset.price);
-                    break;
-                case 6:
-                    // Для дополнительных опций можно выбрать несколько
-                    const selectedOptions = document.querySelectorAll(`#step${currentStep} .option-card.selected`);
-                    config.options = [];
-                    selectedOptions.forEach(opt => {
-                        config.options.push(opt.dataset.value);
-                        config.total += parseInt(opt.dataset.price);
-                    });
-                    
-                    // Обновляем итоговую страницу
-                    updateSummary();
-                    break;
-            }
-            
-            // Переходим к следующему шагу
-            document.getElementById(`step${currentStep}`).classList.remove('active');
-            document.getElementById(`step${currentStep + 1}`).classList.add('active');
-            
-            // Обновляем прогресс-бар
-            updateProgress(currentStep + 1);
+        // Кнопка заказа
+        document.getElementById('order-button').addEventListener('click', function() {
+            alert('Спасибо за заказ! Мы свяжемся с вами для уточнения деталей.');
+        });
+        
+        // Обновляем прогресс-бар
+        updateProgress(1);
+    });
+    
+    // Переход к следующему шагу
+    function nextStep(currentStep) {
+        // Проверяем, что опция выбрана (кроме шага 6)
+        const selected = document.querySelector(`#step${currentStep} .option-card.selected`);
+        if (!selected && currentStep !== 6) {
+            alert('Пожалуйста, выберите один из вариантов');
+            return;
         }
         
-        // Пропуск шагов при выборе "Органная педаль"
-        function skipToFinalStep() {
-            // Скрываем все шаги
-            document.querySelectorAll('.config-step').forEach(step => {
-                step.classList.remove('active');
-            });
-            
-            // Показываем итоговый шаг
-            document.getElementById('step7').classList.add('active');
-            
-            // Устанавливаем прогресс на 100%
-            updateProgress(7);
-            
-            // Обновляем итоговую информацию
+        // Сохраняем выбранную опцию
+        switch(currentStep) {
+            case 1:
+                config.type = selected.dataset.value;
+                config.total = parseInt(selected.dataset.price);
+                
+                // Если выбрана "Органная педаль", сразу переходим к итогу
+                if (config.type === 'pedal') {
+                    skipToFinalStep();
+                    return;
+                }
+                break;
+            case 2:
+                config.keyboard = selected.dataset.value;
+                config.total += parseInt(selected.dataset.price);
+                break;
+            case 3:
+                config.pedal = selected.dataset.value;
+                config.total += parseInt(selected.dataset.price);
+                break;
+            case 4:
+                config.sweller = selected.dataset.value;
+                config.total += parseInt(selected.dataset.price);
+                break;
+            case 5:
+                config.body = selected.dataset.value;
+                config.total += parseInt(selected.dataset.price);
+                break;
+            case 6:
+                // Сохраняем выбранные опции
+                const selectedOptions = document.querySelectorAll('#step6 .option-card.selected');
+                config.options = Array.from(selectedOptions).map(opt => opt.dataset.value);
+                // Добавляем цены выбранных опций
+                selectedOptions.forEach(opt => {
+                    config.total += parseInt(opt.dataset.price);
+                });
+                break;
+        }
+        
+        // Переходим к следующему шагу
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.getElementById(`step${currentStep + 1}`).classList.add('active');
+        
+        // Обновляем прогресс-бар
+        updateProgress(currentStep + 1);
+        
+        // Если переходим на итоговый шаг, обновляем информацию
+        if (currentStep + 1 === 7) {
             updateSummary();
         }
+    }
+    
+    // Пропуск шагов при выборе "Органная педаль"
+    function skipToFinalStep() {
+        // Скрываем все шаги
+        document.querySelectorAll('.config-step').forEach(step => {
+            step.classList.remove('active');
+        });
         
-        // Возврат к предыдущему шагу
-        function prevStep(currentStep) {
-            document.getElementById(`step${currentStep}`).classList.remove('active');
-            document.getElementById(`step${currentStep - 1}`).classList.add('active');
-            
-            // Обновляем прогресс-бар
-            updateProgress(currentStep - 1);
-        }
+        // Показываем итоговый шаг
+        document.getElementById('step7').classList.add('active');
         
-        // Обновление прогресс-бара
-        function updateProgress(step) {
-            const percent = (step - 1) * (100 / 6); // 7 шагов, поэтому делим на 6
-            document.getElementById('progress').style.width = `${percent}%`;
-        }
+        // Устанавливаем прогресс на 100%
+        updateProgress(7);
         
-        // Обновление итоговой страницы
-        function updateSummary() {
-            // Если выбрана "Органная педаль", показываем только ее
-            if (config.type === 'pedal') {
-                document.getElementById('summary-type').textContent = optionNames[config.type];
-                document.getElementById('summary-keyboard').textContent = 'Не требуется';
-                document.getElementById('summary-pedal').textContent = 'Включена';
-                document.getElementById('summary-sweller').textContent = 'Не требуется';
-                document.getElementById('summary-body').textContent = 'Стандартный';
-                document.getElementById('summary-options').textContent = 'Нет';
-                document.getElementById('total-price').textContent = '90 000 ₽';
-                return;
-            }
-            
-            // Для других вариантов показываем полную информацию
-            document.getElementById('summary-type').textContent = optionNames[config.type] || '-';
-            document.getElementById('summary-keyboard').textContent = optionNames[config.keyboard] || '-';
-            document.getElementById('summary-pedal').textContent = optionNames[config.pedal] || '-';
-            document.getElementById('summary-sweller').textContent = optionNames[config.sweller] || '-';
-            document.getElementById('summary-body').textContent = optionNames[config.body] || '-';
+        // Обновляем итоговую информацию
+        updateSummary();
+    }
+    
+    // Обновление итоговой страницы
+    function updateSummary() {
+        // Если выбрана "Органная педаль", показываем только ее
+        if (config.type === 'pedal') {
+            document.getElementById('summary-type').textContent = optionNames[config.type];
+            document.getElementById('summary-keyboard').textContent = 'Не требуется';
+            document.getElementById('summary-pedal').textContent = 'Включена';
+            document.getElementById('summary-sweller').textContent = 'Не требуется';
+            document.getElementById('summary-body').textContent = 'Стандартный';
             
             // Дополнительные опции
-            const optionsText = config.options.length > 0 
-                ? config.options.map(opt => optionNames[opt]).join(', ')
-                : 'Нет';
-            document.getElementById('summary-options').textContent = optionsText;
+            if (config.options.length > 0) {
+                document.getElementById('summary-options').textContent = 
+                    config.options.map(opt => optionNames[opt]).join(', ');
+            } else {
+                document.getElementById('summary-options').textContent = 'Нет';
+            }
             
-            // Итоговая цена
-            document.getElementById('total-price').textContent = `${config.total.toLocaleString()} ₽`;
+            // Итоговая цена (базовая цена + дополнительные опции)
+            let total = 90000;
+            const selectedOptions = document.querySelectorAll('#step6 .option-card.selected');
+            selectedOptions.forEach(opt => {
+                total += parseInt(opt.dataset.price);
+            });
+            document.getElementById('total-price').textContent = `${total.toLocaleString()} ₽`;
+            return;
         }
+        
+        // Для других вариантов показываем полную информацию
+        document.getElementById('summary-type').textContent = optionNames[config.type] || '-';
+        document.getElementById('summary-keyboard').textContent = optionNames[config.keyboard] || '-';
+        document.getElementById('summary-pedal').textContent = optionNames[config.pedal] || '-';
+        document.getElementById('summary-sweller').textContent = optionNames[config.sweller] || '-';
+        document.getElementById('summary-body').textContent = optionNames[config.body] || '-';
+        
+        // Дополнительные опции
+        if (config.options.length > 0) {
+            document.getElementById('summary-options').textContent = 
+                config.options.map(opt => optionNames[opt]).join(', ');
+        } else {
+            document.getElementById('summary-options').textContent = 'Нет';
+        }
+        
+        // Итоговая цена
+        document.getElementById('total-price').textContent = `${config.total.toLocaleString()} ₽`;
+    }
 
         // Переключение между вкладками
         document.querySelectorAll('.nav-button[data-tab]').forEach(button => {
