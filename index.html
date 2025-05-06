@@ -1,5 +1,4 @@
-
-ver 1.25
+ver 1.26
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -276,6 +275,7 @@ ver 1.25
       border-radius: 15px;
       box-shadow: 0 5px 25px rgba(0,0,0,0.1);
       overflow: hidden;
+      display: none;
     }
     
     .config-step {
@@ -448,6 +448,8 @@ ver 1.25
       
       .header-title {
         font-size: 16px;
+        white-space: normal;
+        word-break: break-word;
       }
       
       .header-bottom {
@@ -462,6 +464,7 @@ ver 1.25
       
       .nav-buttons.mobile {
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
         justify-content: space-around;
         order: 1;
@@ -474,6 +477,8 @@ ver 1.25
         padding: 5px 10px;
         transition: none !important;
         background-color: transparent !important;
+        white-space: nowrap;
+        margin: 2px;
       }
       
       .nav-button.active {
@@ -504,7 +509,7 @@ ver 1.25
         margin: 0 auto 20px;
       }
 
-      .mobile-hide {
+      .desktop-only {
         display: none;
       }
       
@@ -539,6 +544,10 @@ ver 1.25
       .contacts {
         margin-left: auto;
       }
+
+      .mobile-only {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -548,8 +557,8 @@ ver 1.25
   <div class="header-top">
     <img alt="Orgus" class="logo-mini" src="logomini.png"/>
     <div class="header-title">Изготовление оргáнов. Обслуживание и ремонт вашего инструмента.</div>
-    <!-- Контакты для десктопа -->
-    <div class="contacts desktop-contacts">
+    <!-- Контакты -->
+    <div class="contacts">
       <button class="contact-button" id="tg-button">
         tg
         <span class="tooltip">@SearAndRue +79022410241</span>
@@ -563,7 +572,7 @@ ver 1.25
   </div>
   
   <div class="header-bottom">
-    <!-- Основные кнопки навигации (десктоп) -->
+    <!-- Основные кнопки навигации -->
     <div class="nav-buttons desktop">
       <a class="nav-button" data-tab="tab1" href="#">Главная</a>
       <a class="nav-button" data-tab="tab2" href="#">Продукция</a>
@@ -571,25 +580,12 @@ ver 1.25
       <a class="nav-button" data-tab="tab4" href="#">Конфигуратор beta</a>
     </div>
     
-    <!-- Контакты для мобильной версии -->
-    <div class="contacts mobile-contacts">
-      <button class="contact-button" id="tg-button-mobile">
-        tg
-        <span class="tooltip">@SearAndRue +79022410241</span>
-      </button>
-      <button class="contact-button" id="email-button-mobile">
-        @
-        <span class="tooltip">umkrat@gmail.com</span>
-      </button>
-      <a class="contact-button vk" href="https://vk.com/kataleps" target="_blank">vk</a>
-    </div>
-    
     <!-- Мобильная навигация -->
     <div class="nav-buttons mobile">
       <a class="nav-button" data-tab="tab1" href="#">Главная</a>
       <a class="nav-button" data-tab="tab2" href="#">Продукция</a>
       <a class="nav-button" data-tab="tab3" href="#">Инфо</a>
-      <a class="nav-button" data-tab="tab4" href="#">Конфигуратор beta</a>
+      <a class="nav-button" data-tab="tab4" href="#">Конфигуратор</a>
     </div>
   </div>
 </div>
@@ -599,7 +595,8 @@ ver 1.25
 <div class="tab active" id="tab1">
 <div class="tab1-content">
 <div class="image-column">
-<img alt="MIDI-орган" class="tab1-image" src="logo.png"/>
+<img alt="MIDI-орган" class="tab1-image desktop-only" src="logo.png"/>
+<img alt="MIDI-орган" class="tab1-image mobile-only" src="2.png"/>
 </div>
 <div class="tab1-text">
 <h1 class="main-title">Ручное изготовление электронных органов под заказ</h1>
@@ -984,12 +981,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Обновляем прогресс-бар
     updateProgress(1);
-    
-    // Принудительно показываем конфигуратор при загрузке (для теста)
-    document.getElementById('tab4').style.display = 'block';
-    setTimeout(() => {
-        document.getElementById('tab4').style.opacity = 1;
-    }, 100);
 });
 
 // Переход к следующему шагу
@@ -1136,7 +1127,10 @@ document.querySelectorAll('.nav-button[data-tab]').forEach(button => {
             
             // Особый случай для конфигуратора
             if (tabId === 'tab4') {
+                document.querySelector('.configurator').style.display = 'block';
                 resetConfigurator();
+            } else {
+                document.querySelector('.configurator').style.display = 'none';
             }
         }
     });
@@ -1180,10 +1174,8 @@ function resetConfigurator() {
 // Управление всплывающими подсказками
 const tgButton = document.getElementById('tg-button');
 const emailButton = document.getElementById('email-button');
-const tgButtonMobile = document.getElementById('tg-button-mobile');
-const emailButtonMobile = document.getElementById('email-button-mobile');
 
-[tgButton, emailButton, tgButtonMobile, emailButtonMobile].forEach(button => {
+[tgButton, emailButton].forEach(button => {
     button.addEventListener('click', function(e) {
         e.stopPropagation();
         this.classList.toggle('active');
@@ -1202,8 +1194,6 @@ const emailButtonMobile = document.getElementById('email-button-mobile');
 document.addEventListener('click', function() {
     tgButton.classList.remove('active');
     emailButton.classList.remove('active');
-    tgButtonMobile.classList.remove('active');
-    emailButtonMobile.classList.remove('active');
 });
 </script>
 </body>
