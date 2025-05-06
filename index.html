@@ -541,16 +541,16 @@ ver 1.27
       .config-step {
         padding: 20px;
       }
-      
-      .tooltip {
-        right: auto;
-        left: 100%;
-        top: 50%;
-        transform: translateY(-50%);
-        margin-right: 0;
-        margin-left: 10px;
-      }
-    }
+    
+  .tooltip {
+    right: 100%; /* Позиционируем слева от кнопки */
+    left: auto; /* Отменяем left: 100% если он был */
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 10px; /* Отступ от кнопки */
+    margin-left: 0;
+  }
+}
 
     /* Десктоп версия */
     @media (min-width: 769px) {
