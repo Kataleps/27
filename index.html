@@ -435,20 +435,19 @@ ver 1.27
 
     /* Мобильная версия */
     @media (max-width: 768px) {
-      .header {
-        position: sticky;
-        height: auto;
-        grid-template-rows: auto auto;
-    top: 0;
-    z-index: 1000;
-      }
-      
-      .header-top {
-        padding: 10px 20px;
-        flex-wrap: wrap;
-        height: auto;
-        min-height: 80px;
-      }
+       .header {
+    /* Убрано position: sticky и top */
+    height: auto;
+    grid-template-rows: auto auto;
+    z-index: 1000; /* Можно оставить, если нужно управлять слоями */
+  }
+  
+  .header-top {
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 80px;
+  }
       
       .logo-mini {
         height: 40px;
