@@ -998,7 +998,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Кнопка заказа
     document.getElementById('order-button').addEventListener('click', function() {
-        alert('К сожалению, конструктор пока не завершен, для оформления заказа подзвоните либо пишите во всех мессенджерах по номеру +79022410241');
+        alert('Спасибо за заказ! Мы обязательно свяжемся с вами для уточнения деталей!');
     });
     
     // Обновляем прогресс-бар
@@ -1083,6 +1083,14 @@ function skipToFinalStep() {
 
 // Возврат к предыдущему шагу
 function prevStep(currentStep) {
+    // Если мы на итоговом шаге (7) - возвращаем на первый шаг
+    if (currentStep === 7) {
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.getElementById('step1').classList.add('active');
+        updateProgress(1);
+        return;
+    }
+    
     document.getElementById(`step${currentStep}`).classList.remove('active');
     document.getElementById(`step${currentStep - 1}`).classList.add('active');
     
