@@ -1130,7 +1130,9 @@ function updateSummary() {
         document.getElementById('summary-sweller').textContent = 'Не требуется';
         document.getElementById('summary-body').textContent = 'Стандартный';
         document.getElementById('summary-options').textContent = 'Нет';
-        document.getElementById('total-price').textContent = '90 000 ₽';
+        // Отображаем цену на 1 рубль меньше
+        const displayPrice = Math.max(0, 90000 - 1); // 90 000 - 1 = 89 999 ₽
+        document.getElementById('total-price').textContent = `${displayPrice.toLocaleString()} ₽`;
         return;
     }
     
@@ -1147,10 +1149,10 @@ function updateSummary() {
         : 'Нет';
     document.getElementById('summary-options').textContent = optionsText;
     
-    // Итоговая цена
-    document.getElementById('total-price').textContent = `${config.total.toLocaleString()} ₽`;
+    // Итоговая цена (оригинальная цена в config.total, отображаем на 1 рубль меньше)
+    const displayPrice = Math.max(0, config.total - 1); // Гарантируем неотрицательное значение
+    document.getElementById('total-price').textContent = `${displayPrice.toLocaleString()} ₽`;
 }
-
 // Переключение между вкладками
 document.querySelectorAll('.nav-button[data-tab]').forEach(button => {
     button.addEventListener('click', function(e) {
