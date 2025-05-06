@@ -1,5 +1,4 @@
-ver 1.26
-
+ver 1.27
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -57,6 +56,9 @@ ver 1.26
       color: white;
       font-weight: bold;
       flex-grow: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .header-bottom {
@@ -121,9 +123,9 @@ ver 1.26
 
     .tooltip {
       position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
       background-color: #333;
       color: white;
       padding: 5px 10px;
@@ -133,7 +135,7 @@ ver 1.26
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s;
-      margin-bottom: 10px;
+      margin-right: 10px;
     }
 
     .contact-button.active .tooltip,
@@ -440,6 +442,9 @@ ver 1.26
       
       .header-top {
         padding: 0 20px;
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 60px;
       }
       
       .logo-mini {
@@ -451,6 +456,8 @@ ver 1.26
         font-size: 16px;
         white-space: normal;
         word-break: break-word;
+        padding: 5px 0;
+        flex-basis: calc(100% - 150px);
       }
       
       .header-bottom {
@@ -533,6 +540,15 @@ ver 1.26
 
       .config-step {
         padding: 20px;
+      }
+      
+      .tooltip {
+        right: auto;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: 0;
+        margin-left: 10px;
       }
     }
 
